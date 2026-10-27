@@ -28,7 +28,7 @@ public final class KeyPickerScreen extends GlassScreen {
   @Override
   protected void init() {
     int x = left(), w = contentWidth();
-    perPage = Math.max(1, (height - 131) / 38);
+    perPage = Math.max(1, (height - 117) / 38);
     EditBox box = new EditBox(font, x + 8, 53, w - 16, 14, tr("key.search"));
     box.setBordered(false);
     box.setMaxLength(100);
@@ -128,6 +128,6 @@ public final class KeyPickerScreen extends GlassScreen {
     heading(g);
     GlassRenderer.panel(g, left(), 47, contentWidth(), 25, 8, 0);
     g.drawCenteredString(
-        font, tr("key.count", count, page + 1, pages), width / 2, height - 47, 0xFFB1CDD9);
+        font, tr("key.count", count, page + 1, pages), width / 2, height - 25, 0xFFB1CDD9);
   }
 }

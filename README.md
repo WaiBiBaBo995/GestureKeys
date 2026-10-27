@@ -1,273 +1,310 @@
 # GestureKeys
 
-**把常用操作画成手势。** 为 Minecraft 添加多笔画鼠标手势、玻璃界面与实时外观预览。
+**Turn everyday actions into mouse gestures.** A client-side Minecraft mod with multi-stroke
+recognition, glass interfaces, and live appearance previews.
+
+**English** | [简体中文](README.zh-CN.md)
 
 ![Minecraft 1.21.1](https://img.shields.io/badge/Minecraft-1.21.1-62B47A)
 ![NeoForge 21.1.172+](https://img.shields.io/badge/NeoForge-21.1.172%2B-E99035)
 ![Java 21](https://img.shields.io/badge/Java-21-437DB0)
-![纯客户端](https://img.shields.io/badge/Side-Client-80D9EA)
+![Client-side](https://img.shields.io/badge/Side-Client-80D9EA)
 [![Apache License 2.0](https://img.shields.io/badge/License-Apache--2.0-437DB0)](LICENSE)
 
-- **画出操作**：将手势绑定到原版或其他模组的游戏动作，也可执行本地客户端命令。
-- **支持多笔画**：抬笔后继续绘制，为同一手势录制多个样本。
-- **九种玻璃风格**：从液态玻璃到云母、水晶，搭配独立的界面与轨迹色调。
-- **边调边看**：风格、强度和颜色即时预览；保存提交，取消撤销。
+- **Draw an action**: bind gestures to vanilla or modded game actions, or run local client commands.
+- **Use multiple strokes**: lift the mouse button and continue, with multiple samples per gesture.
+- **Choose from nine glass styles**: liquid glass, mica, crystal, and more, with independent
+  interface and trail colors.
+- **Preview as you adjust**: see style, strength, and color changes immediately; save to apply
+  or cancel to discard.
 
-![游戏内手势界面：保留绘制轨迹、设置入口与底部识别结果](docs/gesture-overlay.png)
+![In-game gesture overlay with a drawing trail, settings gear, and recognition result](docs/gesture-overlay.png)
 
-[安装](#安装) · [快速上手](#快速上手) · [手势与动作](#手势与动作) ·
-[外观定制](#外观定制) · [常见问题](#常见问题) · [开发与验证](#开发与验证)
+Screenshots show the Simplified Chinese interface. English UI text is also included in the mod.
 
-## 安装
+[Installation](#installation) · [Quick start](#quick-start) ·
+[Gestures and actions](#gestures-and-actions) · [Appearance](#appearance) ·
+[FAQ](#faq) · [Development and verification](#development-and-verification)
 
-| 项目 | 要求 |
+## Installation
+
+| Component | Requirement |
 | --- | --- |
-| Minecraft | **Java 版 1.21.1** |
-| 加载器 | **NeoForge 21.1.172 或更新的 21.1 版本** |
+| Minecraft | **Java Edition 1.21.1** |
+| Mod loader | **NeoForge 21.1.172 or a newer 21.1 release** |
 | Java | **21** |
-| 安装位置 | 客户端实例的 `mods` 文件夹 |
+| Install location | The client instance's `mods` folder |
 
-将安装包 `gesturekeys-1.0.0.jar` 放入 `mods` 文件夹后启动游戏。服务端无需安装。
-自行编译时，安装包位于 `build/libs/`；名称以 `-sources.jar` 结尾的是源码包。
+Place `gesturekeys-1.0.0.jar` in the `mods` folder and launch the game.
+No server installation is required. If you build from source, the installable JAR is generated
+in `build/libs/`; files ending in `-sources.jar` contain source code.
 
-> **首次使用**：请先打开设置，创建并保存一个手势，再回到游戏中绘制。
+> **First time?** Open settings and create and save a gesture before drawing it in the game.
 
-## 快速上手
+## Quick start
 
-### 创建第一个手势
+### Create your first gesture
 
-1. 进入世界，按住 **左 Alt**，点击左下角齿轮打开设置；此后可以松开 Alt。
-2. 选择 **新建手势**，输入名称，例如“打开背包”。
-3. 选择对应的游戏动作，录制样本，点击 **完成录制**。
-4. 通过 **测试识别** 确认效果，保存手势并返回游戏。
-5. 再次按住 **左 Alt**，用鼠标左键画出手势，松开 Alt 执行。
+1. Enter a world, hold **Left Alt**, and click the gear in the lower-left corner to open settings.
+   You can then release Alt.
+2. Select **New gesture** and enter a name, such as “Open inventory.”
+3. Choose the corresponding **Game action**, record a sample, and select **Finish recording**.
+4. Use **Test recognition** to check the result, save the gesture, and return to the game.
+5. Hold **Left Alt** again, draw the gesture with the left mouse button, and release Alt to execute.
 
-设置也可从模组列表的配置入口或客户端命令 `/gesturekeys config` 打开。
+You can also open settings from the mod list's configuration entry or with `/gesturekeys config`.
 
-### 绘制操作
+### Drawing controls
 
-| 操作 | 效果 |
+| Input | Effect |
 | --- | --- |
-| 按住左 Alt | 展开手势界面并显示鼠标 |
-| 按住鼠标左键拖动 | 绘制当前笔画 |
-| 松开左键，再按住绘制 | 添加下一笔，保留已有轨迹 |
-| 鼠标右键 | 清空全部笔画，重新绘制 |
-| 松开 Alt | 识别并执行绑定动作 |
-| Esc | 取消本次绘制 |
+| Hold Left Alt | Open the gesture overlay and show the mouse cursor |
+| Hold and drag the left mouse button | Draw the current stroke |
+| Release the left button, then draw again | Add another stroke while keeping the existing trail |
+| Right mouse button | Clear all strokes and start over |
+| Release Alt | Recognize the gesture and execute its bound action |
+| Esc | Cancel the current drawing |
 
-绘制时，底部显示候选手势、匹配率、动作或失败原因；**松开 Alt 才会执行**。
-成功识别后静默触发动作；识别失败仅在快捷栏上方短暂提示“未识别”或“手势冲突”。
-没有绘制，或清空后松开 Alt，均不显示提示。
+The bottom panel shows the candidate gesture, confidence, action, or rejection reason while drawing.
+**The action runs only when you release Alt.** Accepted gestures execute without an extra success
+notification. Rejected gestures briefly show “Not recognized” or “Gesture conflict” above the hotbar.
+Releasing Alt without drawing, or after clearing the drawing, produces no notification.
 
-在游戏的“选项 → 控制 → 按键绑定 → GestureKeys”中可以更改唤起键。
-手势唤起仅在正常游玩画面中生效。
+Change the activation key in **Options → Controls → Key Binds → GestureKeys**.
+The gesture overlay opens only during normal gameplay.
 
-## 手势与动作
+## Gestures and actions
 
-每个手势支持 **1–8 个样本**，最多保存 **128 个手势**。
-新建与修改均使用草稿，取消不会改变已保存的手势。
+Each gesture supports **1–8 samples**, with up to **128 gestures** in total.
+Creating and editing use drafts; canceling does not change saved gestures.
 
-手势列表与游戏动作选择均支持滚轮翻页：向下滚动下一页，向上滚动上一页，首尾不循环。
-底部显示条目数与“第 n 页 / 共 x 页”；空列表显示第 1 页 / 共 1 页。
-动作选择翻页时保留搜索内容，修改搜索内容后返回第一页。
+Both the gesture list and game-action picker support mouse-wheel paging: scroll down for the next
+page and up for the previous page. Pages do not wrap at either end.
+The footer shows the item count and **Page n / x**; an empty list shows **Page 1 / 1**.
+Paging through actions preserves the search query; changing the query returns to the first page.
 
-### 可以绑定什么
+### Available action types
 
-| 动作类型 | 用法 |
+| Action type | Behavior |
 | --- | --- |
-| 游戏动作：单次点击 | 触发一次目标动作，并提供 1 tick 的按下状态 |
-| 游戏动作：定时按住 | 保持按下 **1–200 tick**，默认 1 tick |
-| 客户端命令 | 执行本地已注册的客户端命令，输入时可带或不带 `/` |
+| Game action: click once | Trigger the action once and provide a pressed state for 1 tick |
+| Game action: timed hold | Keep the action pressed for **1–200 ticks**, defaulting to 1 tick |
+| Client command | Run a locally registered client command, with or without a leading `/` |
 
-游戏动作按名称搜索和选择，支持原版及使用 `KeyMapping` 的其他模组，
-也支持未绑定物理按键的动作。更改游戏里的物理按键绑定后，无需重新配置手势。
+Search for game actions by name. Vanilla actions and modded actions registered through `KeyMapping`
+are supported, including actions without a physical key binding. Changing the physical binding
+in the game's controls does not require reconfiguring the gesture.
 
-正常情况下 **20 tick 约为 1 秒**，客户端卡顿会影响实际时长。
-同一动作再次触发时重新计时；进入其他界面、切出窗口或退出世界时，释放模拟按下状态。
+Normally, **20 ticks are about 1 second**; client stalls can affect the actual duration.
+Triggering the same action again restarts its timer. Simulated pressed states are released when
+you enter another screen, switch away from the game window, or leave the world.
 
-客户端命令可用 `/gesturekeys` 测试。未知命令、参数错误或执行失败会显示错误信息；
-**不会将命令自动转发到服务器**。目标命令自身可能产生反馈。
+You can use `/gesturekeys` to try a client command. Unknown commands, invalid arguments, and
+execution failures display an error. **Commands are not automatically forwarded to the server.**
+The command itself may produce its own feedback.
 
-### 调整识别
+### Tune recognition
 
-在“识别与外观”中拖动滑条，也可用方向键按 **1%** 微调。
+Use the sliders in **Recognition & appearance**, or adjust them with the arrow keys in
+**1-percentage-point** steps.
 
-| 设置 | 默认 | 范围 | 调整作用 |
+| Setting | Default | Range | Effect |
 | --- | --- | --- | --- |
-| 最低匹配程度 | 78% | 60–95% | 调低更宽松，调高更严格 |
-| 第一、第二候选最小差距 | 6% | 2–15% | 调高更容易拒绝相似手势 |
+| Minimum confidence | 78% | 60–95% | Lower is more permissive; higher is stricter |
+| Minimum candidate gap | 6% | 2–15% | Higher values reject similar candidates more readily |
 
-建议先保留默认值，为同一手势补录自然绘制的样本，并让不同手势的形状有明显区别。
-编辑页会提醒与已有手势过于相似的样本。
+Start with the defaults, record additional naturally drawn samples, and make different gestures
+visually distinct. The editor warns when a sample is too similar to another gesture.
 
 <details>
-<summary>识别会忽略哪些差异？</summary>
+<summary>Which drawing differences does recognition ignore?</summary>
 
-识别忽略位置、整体大小、绘制速度、笔画顺序、起点、绘制方向，以及同一路径的分段方式。
-旋转、镜像和长宽比例差异仍参与区分；几何上完全重合的形状无法仅靠形状区分。
+Recognition ignores position, overall size, drawing speed, stroke order, starting point, drawing
+direction, and how the same path is split into strokes. Rotation, mirroring, and aspect-ratio
+differences still help distinguish shapes. Geometrically identical shapes cannot be distinguished
+by shape alone.
 
-轨迹平滑仅用于显示，识别与保存使用原始坐标，不会因外观设置改变。
+Trail smoothing affects display only. Recognition and saved samples use the original coordinates
+and are not changed by appearance settings.
 
 </details>
 
-## 外观定制
+## Appearance
 
-打开设置中的 **识别与外观**，即可调整玻璃风格、模糊与折射强度、展开动画和色调。
+Open **Recognition & appearance** in settings to change the glass style, blur and refraction
+strength, reveal animation, and colors.
 
-### 九种玻璃风格
+### Nine glass styles
 
-点击强度滑条下方的 **玻璃风格** 按钮循环切换，也可以选择 **关闭**。
+Click **Glass style** below the strength slider to cycle through the styles, including **Off**.
 
-| 液态玻璃 | 磨砂玻璃 | 玻璃拟态 |
+| Liquid glass | Frosted glass | Glassmorphism |
 | --- | --- | --- |
-| 亚克力 | 云母 | 烟熏玻璃 |
-| 渐变玻璃 | 极光玻璃 | 水晶玻璃 |
+| Acrylic | Mica | Smoked glass |
+| Gradient glass | Aurora glass | Crystal glass |
 
-![九种玻璃风格的实机对比，按行从左至右对应上表](docs/materials.png)
+![Nine glass styles in-game, arranged row by row to match the table above](docs/materials.png)
 
-各风格具有不同的模糊、透明度、折射、颗粒、高光与色彩效果。
-玻璃模糊与折射强度可在 **50–150%** 间调整，每步 **1%**。
+Each style has its own blur, opacity, refraction, grain, highlights, and color effects.
+Adjust **Glass blur & refraction** from **50–150%** in **1-percentage-point** steps.
 
-### 界面与轨迹独立调色
+### Independent interface and trail colors
 
-两套色调均提供 **12 个预设色、HSV 调色盘和 HEX 输入**。
+Both color pickers offer **12 presets, an HSV palette, and HEX input**.
 
-| 色调 | 应用范围 |
+| Color setting | Applies to |
 | --- | --- |
-| 界面色调 | 玻璃表面、控件高亮和界面强调色；文字与识别状态保留可读颜色 |
-| 轨迹色调 | 游戏内绘制、样本录制、识别测试和手势缩略图 |
+| Interface color | Glass surfaces, control highlights, and accents; text and status stay readable |
+| Trail color | In-game drawing, sample recording, recognition tests, and gesture thumbnails |
 
-![轨迹调色盘：HSV 选色、预设色、HEX 输入和实时曲线预览](docs/palette-trail.png)
+![Trail color picker with HSV selection, presets, HEX input, and a live curve preview](docs/palette-trail.png)
 
-风格、强度和色调 **修改后即时预览**，无需先保存。
+Style, strength, and color changes **preview immediately**, without saving first.
 
-| 所在界面 | 完成或保存 | 取消或 Esc |
+| Screen | Done or Save | Cancel or Esc |
 | --- | --- | --- |
-| 调色盘 | 将当前颜色带回外观草稿 | 放弃本次调色，恢复进入调色盘前的颜色 |
-| 识别与外观 | 将全部草稿设置写入配置 | 放弃全部未保存修改 |
+| Color picker | Return the chosen color to the appearance draft | Discard this color edit |
+| Recognition & appearance | Save all draft settings to the configuration | Discard all unsaved changes |
 
-轨迹采用抗锯齿 Shader、圆头衔接与轻量平滑，保留锐角、端点和抬笔间隙。
-Shader 加载或绘制失败时，玻璃控件自动降级为半透明圆角控件，轨迹也有几何绘制降级。
-更多界面截图见 [验证记录](docs/verification.md#界面截图)。
+Canceling the color picker restores the color from before it was opened.
+Trails use an antialiased shader, rounded ends and joins, and lightweight smoothing, while
+preserving sharp corners, endpoints, and gaps between strokes. If a shader fails to load or render,
+glass controls fall back to translucent rounded controls; trails also have a geometry fallback.
+More screenshots are available in the [verification record](docs/verification.md#界面截图) (Chinese).
 
-## 常见问题
+## FAQ
 
-### 为什么提示“未识别”或“手势冲突”？
+### Why do I get “Not recognized” or “Gesture conflict”?
 
-“未识别”表示当前轨迹未通过识别条件；“手势冲突”表示两个候选过于接近，模组拒绝执行。
-先在编辑页测试并补录样本，或将相似手势改成更有区别的形状，再按需调整识别滑条。
+“Not recognized” means the drawing did not meet the recognition criteria. “Gesture conflict” means
+the top two candidates were too close, so the mod refused to execute either action.
+Try the recognition test, record more samples, or make similar gestures more distinct before
+adjusting the sliders.
 
-### 为什么某些模组的按键动作无法触发？
+### Why do some modded key actions not work?
 
-GestureKeys 通过 `KeyMapping` 触发游戏动作。
-直接监听 GLFW 或原始键盘事件的模组需要另行适配；未出现在动作列表中的功能无法直接绑定。
+GestureKeys triggers game actions through `KeyMapping`. Mods that listen directly to GLFW or raw
+keyboard events need separate integration. Features absent from the action list cannot be bound
+directly.
 
-### 能执行服务器命令吗？
+### Can gestures run server commands?
 
-命令动作仅使用 NeoForge 的本地客户端命令调度器，不会自动发送服务器命令。
+Command actions use NeoForge's local client-command dispatcher and do not automatically send
+commands to the server.
 
-### 打开界面后，游戏会暂停吗？
+### Does opening the interface pause the game?
 
-手势绘制界面不会暂停世界。设置、编辑、录制与测试界面会在未开放局域网的单人世界中暂停游戏；
-多人世界继续运行。
+The gesture overlay does not pause the world. Settings, editing, recording, and recognition-test
+screens pause a single-player world when it has not been opened to LAN. Multiplayer worlds
+continue running.
 
-### 开启玻璃和轨迹效果会影响性能吗？
+### What is the performance impact of the glass and trail effects?
 
-模糊采用半分辨率双通道缓存，轨迹合批绘制，实时调色复用已有渲染目标。
-本机 RTX 4060 Laptop、1080p 的测试场景中，模组绘制 GPU 中位耗时
-由更新前约 **0.59 ms** 降至当前九种风格约 **0.25–0.35 ms**。
+Blur uses two half-resolution passes, trails are batched, and live color changes reuse render
+targets. In a local RTX 4060 Laptop test at 1080p, the median GPU time for the mod's rendering
+dropped from about **0.59 ms** before the update to about **0.25–0.35 ms** across the current styles.
 
-这是八个面板与一条轨迹的局部测量，**不代表完整游戏帧耗时，也不保证其他硬件的帧率**。
-其他显卡及第三方渲染模组组合仍需在目标实例验证；
-详细环境、长轨迹结果与测量范围见 [性能记录](docs/verification.md#性能)。
+This measures eight panels and one trail. **It is not total game frame time and does not guarantee
+frame rates on other hardware.** Other GPUs and third-party rendering-mod combinations still
+need verification in the target instance. See the [performance record](docs/verification.md#性能)
+(Chinese) for the environment, long-trail results, and measurement scope.
 
-## 配置文件
+## Configuration
 
-配置保存在游戏实例的 `config/gesturekeys.json`，使用 UTF-8 JSON。
+The configuration is stored as UTF-8 JSON in the game instance's `config/gesturekeys.json`.
 
-- 保存采用临时文件与原子替换。
-- 配置损坏时，先备份为 `gesturekeys.json.broken-<时间戳>`，再使用空白配置。
-- 旧配置会自动迁移原 Shader 开关状态。
+- Saving uses a temporary file and atomic replacement.
+- A damaged configuration is backed up as `gesturekeys.json.broken-<timestamp>` before an empty
+  configuration is used.
+- Legacy configurations automatically migrate the original shader toggle state.
 
-## 开发与验证
+## Development and verification
 
-玩家可以直接安装编译后的 JAR。开发环境、构建命令和测试入口如下。
+Players can install a compiled JAR directly. Expand the section below for build commands and
+verification entry points.
 
 <details>
-<summary>展开开发、构建与验证说明</summary>
+<summary>Development, builds, and verification</summary>
 
-### 项目信息
+### Project details
 
-| 项目 | 内容 |
+| Item | Value |
 | --- | --- |
-| 作者 | PureNeko |
+| Author | PureNeko |
 | Mod ID | `gesturekeys` |
-| 包名 | `com.pureneko.gesturekeys` |
-| 构建配置 | [gradle.properties](gradle.properties) |
+| Package | `com.pureneko.gesturekeys` |
+| Build configuration | [gradle.properties](gradle.properties) |
 
-准备 Java 21，在项目根目录使用 Gradle Wrapper。首次构建需要下载依赖。
+Use Java 21 and the Gradle Wrapper from the project root. The first build needs to download
+dependencies. These examples use Windows PowerShell.
 
 ```powershell
 .\gradlew.bat build
 .\gradlew.bat runClient
 ```
 
-`neo_version` 指定编译和运行版本，`neo_min_version` 独立指定安装时的最低版本要求。
-例如，以下命令可在较新版本验证，同时保留最低要求：
+`neo_version` selects the compile and runtime version. `neo_min_version` independently sets the
+minimum version required to install the mod. For example, this runs against a newer version
+without raising the minimum requirement:
 
 ```powershell
 .\gradlew.bat -Pneo_version=21.1.264 runClient
 ```
 
-### 自动检查
+### Automated checks
 
-截至 **2026-10-27**，已完成以下检查，原始报告与截图见 [验证记录](docs/verification.md)。
-以下记录来自此前功能版本；本次滚轮分页与授权更新未运行测试。
+The following checks were completed as of **October 27, 2026**. Raw reports and screenshots are in
+the [verification record](docs/verification.md) (Chinese). These results are from an earlier
+feature version; the subsequent wheel paging, page-layout fix, and license updates were not tested.
 
-| 检查 | 结果 |
+| Check | Result |
 | --- | --- |
-| 单元测试 | 26 项通过 |
-| 客户端功能回归 | 32 项通过 |
-| 外观、预览与渲染检查 | 61 项通过 |
+| Unit tests | 26 passed |
+| Client functionality regression checks | 32 passed |
+| Appearance, preview, and rendering checks | 61 passed |
 
-单元测试覆盖多笔画、方向与缩放处理、手绘比例容差、相似手势拒绝、tick 时长、
-配置持久化与损坏恢复、旧配置迁移、颜色转换及轨迹平滑。
+Unit tests cover multi-stroke paths, direction and scale handling, hand-drawn aspect-ratio
+tolerance, rejection of similar gestures, tick timing, configuration persistence and recovery,
+legacy migration, color conversion, and trail smoothing.
 
 ```powershell
-# 客户端功能回归
+# Client functionality regression checks
 .\gradlew.bat -Psmoke runClient
 
-# 外观、实时预览和性能检查，包含功能回归
+# Appearance, live previews, and performance; includes functionality regression checks
 .\gradlew.bat -PvisualSmoke runClient
 ```
 
-| 参数 | 独立开发实例 | 报告与帧截图 |
+| Flag | Separate development instance | Reports and frame captures |
 | --- | --- | --- |
 | `-Psmoke` | `run-smoke` | `build/smoke` |
-| `-PvisualSmoke` | `run-visual-smoke` | `build/visual-smoke`，以及 `build/smoke` |
+| `-PvisualSmoke` | `run-visual-smoke` | `build/visual-smoke` and `build/smoke` |
 
-检查通过模组内部输入和界面 API 驱动，在测试世界中完成后自动退出。
-性能检查覆盖 854×480 和 1920×1080、80 点和 4096 点轨迹，并与更新前渲染器比较；
-每种模式预热 35 帧后采样 80 帧，记录 CPU 中位数、GPU 中位数和 GPU P95。
+The checks use the mod's internal input and screen APIs in a test world, then exit automatically.
+Performance checks cover 854×480 and 1920×1080, trails with 80 and 4096 points, and a comparison
+with the previous renderer. Each mode warms up for 35 frames before sampling 80 frames, recording
+median CPU time, median GPU time, and GPU P95.
 
-真实硬件 Alt、窗口焦点切换、多人服务器及其他显卡、第三方渲染模组组合，
-仍需在目标实例进行完整手工回归。
+Physical Alt input, window-focus changes, multiplayer servers, other GPUs, and third-party
+rendering-mod combinations still need full manual regression checks in the target instance.
 
-### 正式构建
+### Release builds
 
-`src/smoke` 仅在指定检查参数时参与编译。发布前执行普通构建，排除检查程序和基准 Shader：
+`src/smoke` is compiled only when a check flag is specified. Before publishing, run a regular
+build to exclude the check code and baseline shaders:
 
 ```powershell
 .\gradlew.bat clean build
 ```
 
-安装包和源码包均输出到 `build/libs/`。`clean` 会删除 `build/` 下的检查报告和截图，
-需要保留时请先归档。
+The installable and source JARs are generated in `build/libs/`. The `clean` task deletes reports
+and screenshots under `build/`, so archive any results you want to keep beforehand.
 
 </details>
 
-## 作者与授权
+## Author and license
 
-Copyright 2026 PureNeko。
+Copyright 2026 PureNeko.
 
-本项目采用 **[Apache License 2.0](LICENSE)** 许可；完整条款随安装包和源码包一同提供。
+This project is licensed under the **[Apache License 2.0](LICENSE)**. The full license text is
+included in both the installable JAR and the source JAR.

@@ -81,14 +81,14 @@ public final class SettingsScreen extends GlassScreen {
         font,
         tr("settings.count", GestureKeys.STORE.get().gestures.size(), page + 1, pages),
         width / 2,
-        height - 47,
+        height - 25,
         0xFF9DBCCC);
     if (GestureKeys.STORE.loadWarning() != null)
       g.drawString(
           font,
           GlassScreen.clip(font, tr("config.recovered"), contentWidth()),
           left(),
-          height - 60,
+          height - 47,
           0xFFFFC48C,
           false);
   }
