@@ -12,7 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
+import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback.RegistrationContext;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.lwjgl.opengl.GL11;
@@ -41,15 +41,13 @@ public final class GlassRenderer {
 
   private GlassRenderer() {}
 
-  public static void registerShader(RegisterShadersEvent event) {
+  public static void registerShader(RegistrationContext context) {
     shader = null;
     failed = false;
     try {
-      event.registerShader(
-          new ShaderInstance(
-              event.getResourceProvider(),
+      context.register(
               ResourceLocation.fromNamespaceAndPath(GestureKeys.ID, "liquid_glass"),
-              DefaultVertexFormat.POSITION_TEX),
+              DefaultVertexFormat.POSITION_TEX,
           value -> shader = value);
     } catch (IOException | RuntimeException e) {
       GestureKeys.LOGGER.error("Liquid glass shader unavailable; using translucent controls", e);

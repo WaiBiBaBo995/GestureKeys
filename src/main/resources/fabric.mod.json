@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "gesturekeys",
+  "version": "${version}",
+  "name": "GestureKeys",
+  "description": "Client-side multistroke mouse gestures with nine glass styles and live color previews.",
+  "authors": ["PureNeko"],
+  "contact": {
+    "sources": "https://github.com/WaiBiBaBo995/GestureKeys/tree/fabric-1.21.1",
+    "issues": "https://github.com/WaiBiBaBo995/GestureKeys/issues"
+  },
+  "license": "Apache-2.0",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.pureneko.gesturekeys.GestureKeys"],
+    "modmenu": ["com.pureneko.gesturekeys.client.ModMenuIntegration"]
+  },
+  "mixins": ["gesturekeys.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": ">=${fabric_version}"
+  },
+  "suggests": {"modmenu": "*"}
+}

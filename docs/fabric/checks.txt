@@ -1,0 +1,28 @@
+PASS client reaches title screen
+PASS activation key registered
+PASS physical binding readable
+PASS glass shader loaded
+PASS trail shaders loaded
+PASS settings renders without GL errors
+PASS palette opens
+PASS action picker renders
+PASS action picker wheel handler runs
+PASS optional Mod Menu factory opens settings
+PASS style renders: liquid
+PASS style renders: frosted
+PASS style renders: glassmorphism
+PASS style renders: acrylic
+PASS style renders: mica
+PASS style renders: smoked
+PASS style renders: gradient
+PASS style renders: aurora
+PASS style renders: crystal
+PASS style renders: off
+PASS shaders survive resource reload
+PASS single-player world loads
+PASS key accessor mixin applied
+PASS gesture action opens inventory
+PASS timed action holds jump
+PASS key state mixin exposes held action
+PASS opening screen releases action
+PASS Fabric local client command opens settings

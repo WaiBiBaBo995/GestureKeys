@@ -14,7 +14,7 @@ import java.util.Map;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
+import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback.RegistrationContext;
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL14;
@@ -33,18 +33,18 @@ public final class TrailRenderer {
 
   private TrailRenderer() {}
 
-  public static void registerShader(RegisterShadersEvent event) {
+  public static void registerShader(RegistrationContext context) {
     shader = null;
     composite = null;
     failed = false;
     CACHE.clear();
     try {
-      event.registerShader(new ShaderInstance(event.getResourceProvider(),
+      context.register(
           ResourceLocation.fromNamespaceAndPath(GestureKeys.ID, "gesture_trail"),
-          DefaultVertexFormat.POSITION_TEX), value -> shader = value);
-      event.registerShader(new ShaderInstance(event.getResourceProvider(),
+          DefaultVertexFormat.POSITION_TEX, value -> shader = value);
+      context.register(
           ResourceLocation.fromNamespaceAndPath(GestureKeys.ID, "trail_composite"),
-          DefaultVertexFormat.POSITION_TEX), value -> composite = value);
+          DefaultVertexFormat.POSITION_TEX, value -> composite = value);
     } catch (IOException | RuntimeException e) {
       failed = true;
       GestureKeys.LOGGER.error("Trail shader unavailable; using rounded geometry", e);

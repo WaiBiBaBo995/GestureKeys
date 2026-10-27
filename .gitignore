@@ -7,3 +7,5 @@ out/
 *.iml
 .vscode/
 run-visual-smoke/
+run-fabric/
+run-fabric-check/

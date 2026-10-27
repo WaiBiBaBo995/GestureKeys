@@ -1,54 +1,66 @@
 plugins {
+    id 'fabric-loom' version '1.14.10'
     id 'java-library'
-    id 'net.neoforged.moddev' version '2.0.148'
 }
 
 version = mod_version
 group = 'com.pureneko.gesturekeys'
-base.archivesName = 'gesturekeys'
+base.archivesName = 'gesturekeys-fabric-1.21.1'
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 java.withSourcesJar()
 
-neoForge {
-    version = project.neo_version
-    runs {
-        client {
-            client()
-            if (project.hasProperty('smoke') || project.hasProperty('visualSmoke')) {
-                systemProperty project.hasProperty('visualSmoke') ? 'gesturekeys.visualSmoke' : 'gesturekeys.smoke', 'true'
-                gameDirectory = project.file(project.hasProperty('visualSmoke') ? 'run-visual-smoke' : 'run-smoke')
-            }
-        }
-    }
-    mods {
-        gesturekeys { sourceSet sourceSets.main }
+repositories {
+    maven { url = 'https://maven2.fabricmc.net/'; content { includeGroupByRegex 'net.fabricmc.*' } }
+    mavenCentral()
+    maven { url = 'https://api.modrinth.com/maven' }
+}
+
+// Use Fabric's official alternate Maven endpoint for all Loom-added repositories.
+repositories.configureEach { repo ->
+    if (repo instanceof MavenArtifactRepository && repo.url.host == 'maven.fabricmc.net') {
+        repo.setUrl('https://maven2.fabricmc.net/')
     }
 }
 
-// Opt-in in-process integration checks; never included in normal release builds.
-if (project.hasProperty('smoke') || project.hasProperty('visualSmoke')) sourceSets.main.java.srcDir('src/smoke/java')
-
-if (project.hasProperty('visualSmoke')) sourceSets.main.resources.srcDir('src/smoke/resources')
-
-repositories { mavenCentral() }
 dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modCompileOnly "maven.modrinth:modmenu:${modmenu_version}"
+    modLocalRuntime "maven.modrinth:modmenu:${modmenu_version}"
     testImplementation 'com.google.code.gson:gson:2.10.1'
     testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
+loom {
+    runs {
+        client {
+            client()
+            runDir 'run-fabric'
+            if (project.hasProperty('launchCheck')) {
+                runDir 'run-fabric-check'
+                vmArg '-Dgesturekeys.launchCheck=true'
+            }
+        }
+    }
+}
+
+if (project.hasProperty('launchCheck')) sourceSets.main.java.srcDir('src/launchCheck/java')
+
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 tasks.named('processResources', ProcessResources) {
-    inputs.properties(mod_version: project.version, neo_min_version: project.neo_min_version)
-    filesMatching('META-INF/neoforge.mods.toml') {
-        expand(mod_version: project.version, neo_min_version: project.neo_min_version)
+    inputs.properties(version: project.version, loader_version: loader_version,
+            minecraft_version: minecraft_version, fabric_version: fabric_version)
+    filesMatching('fabric.mod.json') {
+        expand(version: project.version, loader_version: loader_version,
+                minecraft_version: minecraft_version, fabric_version: fabric_version)
     }
 }
 tasks.named('test', Test) { useJUnitPlatform() }
-tasks.withType(Jar).configureEach {
-    from('LICENSE')
-}
-
+tasks.withType(Jar).configureEach { from('LICENSE') }
 tasks.named('jar', Jar) {
-    manifest.attributes('Implementation-Title': 'GestureKeys', 'Implementation-Version': project.version)
+    manifest.attributes('Implementation-Title': 'GestureKeys Fabric', 'Implementation-Version': project.version)
 }

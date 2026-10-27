@@ -12,52 +12,54 @@ import java.io.IOException;
 import java.util.List;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.loading.FMLPaths;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.client.settings.KeyConflictContext;
-import net.neoforged.neoforge.common.NeoForge;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback;
+import com.mojang.brigadier.CommandDispatcher;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 
-@Mod(value = GestureKeys.ID, dist = Dist.CLIENT)
-public final class GestureKeys {
+public final class GestureKeys implements ClientModInitializer {
   public static final String ID = "gesturekeys";
   public static final Logger LOGGER = LogUtils.getLogger();
   public static final KeyMapping OPEN =
       new KeyMapping(
           "key.gesturekeys.open",
-          KeyConflictContext.IN_GAME,
           InputConstants.Type.KEYSYM,
           GLFW.GLFW_KEY_LEFT_ALT,
           "key.categories.gesturekeys");
   public static final ConfigStore STORE =
-      new ConfigStore(FMLPaths.CONFIGDIR.get().resolve("gesturekeys.json"));
+      new ConfigStore(FabricLoader.getInstance().getConfigDir().resolve("gesturekeys.json"));
   private static List<GestureRecognizer.Template> templates = List.of();
   private boolean wasDown;
 
-  public GestureKeys(IEventBus bus, ModContainer container) {
+  @Override
+  public void onInitializeClient() {
     try {
       STORE.load();
     } catch (IOException e) {
       LOGGER.error("Could not read GestureKeys config", e);
     }
     rebuildTemplates();
-    bus.addListener((RegisterKeyMappingsEvent e) -> e.register(OPEN));
-    bus.addListener(GlassRenderer::registerShader);
-    bus.addListener(com.pureneko.gesturekeys.client.TrailRenderer::registerShader);
-    NeoForge.EVENT_BUS.addListener(this::tick);
-    NeoForge.EVENT_BUS.addListener(this::commands);
-    container.registerExtensionPoint(
-        IConfigScreenFactory.class, (c, parent) -> new SettingsScreen(parent));
+    KeyBindingHelper.registerKeyBinding(OPEN);
+    CoreShaderRegistrationCallback.EVENT.register(GlassRenderer::registerShader);
+    CoreShaderRegistrationCallback.EVENT.register(com.pureneko.gesturekeys.client.TrailRenderer::registerShader);
+    ClientTickEvents.START_CLIENT_TICK.register(this::tick);
+    ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> commands(dispatcher));
+    if (Boolean.getBoolean("gesturekeys.launchCheck")) {
+      try {
+        Class.forName("com.pureneko.gesturekeys.check.FabricLaunchCheck")
+            .getMethod("register").invoke(null);
+      } catch (ReflectiveOperationException e) {
+        throw new IllegalStateException("Development launch checker unavailable", e);
+      }
+    }
   }
 
   public static void rebuildTemplates() {
@@ -83,7 +85,7 @@ public final class GestureKeys {
   public static boolean activationDown() {
     Minecraft mc = Minecraft.getInstance();
     if (!mc.isWindowActive()) return false;
-    InputConstants.Key key = OPEN.getKey();
+    InputConstants.Key key = KeyBindingHelper.getBoundKeyOf(OPEN);
     long window = mc.getWindow().getWindow();
     boolean pressed =
         key.getType() == InputConstants.Type.MOUSE
@@ -91,11 +93,10 @@ public final class GestureKeys {
             : key.getType() == InputConstants.Type.KEYSYM
                 && key.getValue() != GLFW.GLFW_KEY_UNKNOWN
                 && InputConstants.isKeyDown(window, key.getValue());
-    return pressed && OPEN.getKeyModifier().isActive(KeyConflictContext.IN_GAME);
+    return pressed;
   }
 
-  private void tick(ClientTickEvent.Pre event) {
-    Minecraft mc = Minecraft.getInstance();
+  private void tick(Minecraft mc) {
     boolean down = activationDown();
     ActionExecutor.tick();
     if (mc.screen instanceof GestureScreen gesture) {
@@ -117,13 +118,11 @@ public final class GestureKeys {
     }
   }
 
-  private void commands(RegisterClientCommandsEvent event) {
-    event
-        .getDispatcher()
-        .register(
-            Commands.literal(ID)
+  private void commands(CommandDispatcher<FabricClientCommandSource> dispatcher) {
+    dispatcher.register(
+            ClientCommandManager.literal(ID)
                 .then(
-                    Commands.literal("config")
+                    ClientCommandManager.literal("config")
                         .executes(
                             ctx -> {
                               Minecraft mc = Minecraft.getInstance();
@@ -133,8 +132,7 @@ public final class GestureKeys {
                 .executes(
                     ctx -> {
                       ctx.getSource()
-                          .sendSuccess(
-                              () -> Component.translatable("gesturekeys.command.help"), false);
+                          .sendFeedback(Component.translatable("gesturekeys.command.help"));
                       return 1;
                     }));
   }

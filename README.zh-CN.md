@@ -2,10 +2,12 @@
 
 [English](README.md) | **简体中文**
 
-**把常用操作画成手势。** 为 Minecraft 添加多笔画鼠标手势、玻璃界面与实时外观预览。
+**Fabric 1.21.1 分支** · [NeoForge 版本](https://github.com/WaiBiBaBo995/GestureKeys/tree/main)
+
+**把常用操作画成手势。** 为 Minecraft 添加多笔画鼠标手势控制按键/客户端指令。
 
 ![Minecraft 1.21.1](https://img.shields.io/badge/Minecraft-1.21.1-62B47A)
-![NeoForge 21.1.172+](https://img.shields.io/badge/NeoForge-21.1.172%2B-E99035)
+![Fabric Loader 0.16.14+](https://img.shields.io/badge/Fabric_Loader-0.16.14%2B-DBD0B4)
 ![Java 21](https://img.shields.io/badge/Java-21-437DB0)
 ![纯客户端](https://img.shields.io/badge/Side-Client-80D9EA)
 [![Apache License 2.0](https://img.shields.io/badge/License-Apache--2.0-437DB0)](LICENSE)
@@ -27,11 +29,14 @@
 | 项目 | 要求 |
 | --- | --- |
 | Minecraft | **Java 版 1.21.1** |
-| 加载器 | **NeoForge 21.1.172 或更新的 21.1 版本** |
+| 加载器 | **Fabric Loader 0.16.14 或更新版本** |
+| Fabric API | **0.116.17+1.21.1**（必装） |
+| Mod Menu | **11.0.3**（可选设置入口） |
 | Java | **21** |
 | 安装位置 | 客户端实例的 `mods` 文件夹 |
 
-将安装包 `gesturekeys-1.0.0.jar` 放入 `mods` 文件夹后启动游戏。服务端无需安装。
+将安装包 `gesturekeys-fabric-1.21.1-1.0.0.jar` 放入 `mods` 文件夹后启动游戏。服务端无需安装。
+请同时安装适用于 Minecraft 1.21.1 的 Fabric API；Mod Menu 为可选依赖。
 自行编译时，安装包位于 `build/libs/`；名称以 `-sources.jar` 结尾的是源码包。
 
 > **首次使用**：请先打开设置，创建并保存一个手势，再回到游戏中绘制。
@@ -46,7 +51,8 @@
 4. 通过 **测试识别** 确认效果，保存手势并返回游戏。
 5. 再次按住 **左 Alt**，用鼠标左键画出手势，松开 Alt 执行。
 
-设置也可从模组列表的配置入口或客户端命令 `/gesturekeys config` 打开。
+安装 Mod Menu 后，也可从模组列表的配置按钮打开设置。
+未安装 Mod Menu 时，齿轮和客户端命令 `/gesturekeys config` 仍可使用。
 
 ### 绘制操作
 
@@ -168,7 +174,7 @@ GestureKeys 通过 `KeyMapping` 触发游戏动作。
 
 ### 能执行服务器命令吗？
 
-命令动作仅使用 NeoForge 的本地客户端命令调度器，不会自动发送服务器命令。
+命令动作仅使用 Fabric API 的本地客户端命令调度器，不会自动发送服务器命令。
 
 ### 打开界面后，游戏会暂停吗？
 
@@ -179,7 +185,8 @@ GestureKeys 通过 `KeyMapping` 触发游戏动作。
 
 模糊采用半分辨率双通道缓存，轨迹合批绘制，实时调色复用已有渲染目标。
 本机 RTX 4060 Laptop、1080p 的测试场景中，模组绘制 GPU 中位耗时
-由更新前约 **0.59 ms** 降至当前九种风格约 **0.25–0.35 ms**。
+由视觉更新前约 **0.59 ms** 降至约 **0.25–0.35 ms**。
+这组历史数据来自 NeoForge 版，不代表 Fabric 版的性能实测。
 
 这是八个面板与一条轨迹的局部测量，**不代表完整游戏帧耗时，也不保证其他硬件的帧率**。
 其他显卡及第三方渲染模组组合仍需在目标实例验证；
@@ -216,50 +223,31 @@ GestureKeys 通过 `KeyMapping` 触发游戏动作。
 .\gradlew.bat runClient
 ```
 
-`neo_version` 指定编译和运行版本，`neo_min_version` 独立指定安装时的最低版本要求。
-例如，以下命令可在较新版本验证，同时保留最低要求：
+`minecraft_version`、`loader_version` 和 `fabric_version` 分别固定游戏、Fabric Loader
+和 Fabric API 版本，`modmenu_version` 指定可选的 Mod Menu 开发集成版本。
+本分支使用 Fabric Loom 与 Mojang mappings，`main` 分支保留 NeoForge 实现。
+
+### 客户端启动检查
+
+可选开发检查会依次打开设置、外观、调色盘、动作选择和全部玻璃风格，
+检查 Shader 重载、世界内按键动作和本地客户端指令后自动退出，并使用独立的游戏目录。
 
 ```powershell
-.\gradlew.bat -Pneo_version=21.1.264 runClient
+.\gradlew.bat -PlaunchCheck runClient
 ```
 
-### 自动检查
+报告和帧截图写入 `build/fabric-launch-check`，临时游戏实例位于 `run-fabric-check`。
+检查代码仅在添加 `-PlaunchCheck` 时编译。此次 **28 项运行检查**的结果和验证边界见
+[Fabric 启动记录](docs/fabric-verification.md)。此前 NeoForge 的检查与性能数据保留在
+[验证记录](docs/verification.md) 中供参考，不等同于 Fabric 兼容性验证。
+旧的 `src/smoke` 检查代码依赖 NeoForge，本分支不编译它。
 
-截至 **2026-10-27**，已完成以下检查，原始报告与截图见 [验证记录](docs/verification.md)。
-以下记录来自此前功能版本；后续滚轮分页、页码位置修复与授权更新未运行测试。
-
-| 检查 | 结果 |
-| --- | --- |
-| 单元测试 | 26 项通过 |
-| 客户端功能回归 | 32 项通过 |
-| 外观、预览与渲染检查 | 61 项通过 |
-
-单元测试覆盖多笔画、方向与缩放处理、手绘比例容差、相似手势拒绝、tick 时长、
-配置持久化与损坏恢复、旧配置迁移、颜色转换及轨迹平滑。
-
-```powershell
-# 客户端功能回归
-.\gradlew.bat -Psmoke runClient
-
-# 外观、实时预览和性能检查，包含功能回归
-.\gradlew.bat -PvisualSmoke runClient
-```
-
-| 参数 | 独立开发实例 | 报告与帧截图 |
-| --- | --- | --- |
-| `-Psmoke` | `run-smoke` | `build/smoke` |
-| `-PvisualSmoke` | `run-visual-smoke` | `build/visual-smoke`，以及 `build/smoke` |
-
-检查通过模组内部输入和界面 API 驱动，在测试世界中完成后自动退出。
-性能检查覆盖 854×480 和 1920×1080、80 点和 4096 点轨迹，并与更新前渲染器比较；
-每种模式预热 35 帧后采样 80 帧，记录 CPU 中位数、GPU 中位数和 GPU P95。
-
-真实硬件 Alt、窗口焦点切换、多人服务器及其他显卡、第三方渲染模组组合，
-仍需在目标实例进行完整手工回归。
+真实硬件 Alt、窗口焦点切换、多人服务器和第三方渲染模组组合，
+仍需在目标实例进行手工回归。
 
 ### 正式构建
 
-`src/smoke` 仅在指定检查参数时参与编译。发布前执行普通构建，排除检查程序和基准 Shader：
+发布前执行不带 `-PlaunchCheck` 的普通构建，以排除开发检查代码：
 
 ```powershell
 .\gradlew.bat clean build

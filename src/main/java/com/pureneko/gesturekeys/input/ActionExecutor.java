@@ -8,7 +8,8 @@ import java.util.Arrays;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.client.ClientCommandHandler;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
 public final class ActionExecutor {
   private static final TickHolds<KeyMapping> HOLDS = new TickHolds<>();
@@ -46,9 +47,10 @@ public final class ActionExecutor {
       if (command.startsWith("/")) command = command.substring(1);
       try {
         // Strictly local dispatch. Never route an unknown command to the server.
-        if (ClientCommandHandler.getDispatcher() == null)
+        if (ClientCommandManager.getActiveDispatcher() == null || mc.getConnection() == null)
           throw new IllegalStateException("Client dispatcher unavailable");
-        ClientCommandHandler.getDispatcher().execute(command, ClientCommandHandler.getSource());
+        ClientCommandManager.getActiveDispatcher().execute(
+            command, (FabricClientCommandSource) mc.getConnection().getSuggestionsProvider());
       } catch (CommandSyntaxException e) {
         message(Component.translatable("gesturekeys.error.command", e.getRawMessage().getString()));
       } catch (RuntimeException e) {

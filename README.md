@@ -1,12 +1,13 @@
 # GestureKeys
 
-**Turn everyday actions into mouse gestures.** A client-side Minecraft mod with multi-stroke
-recognition, glass interfaces, and live appearance previews.
+**Turn everyday actions into mouse gestures.** A client-side Minecraft mod with multi-stroke mouse gesture control keybindings/client commands.
 
 **English** | [简体中文](README.zh-CN.md)
 
+**Fabric 1.21.1 branch** · [NeoForge version](https://github.com/WaiBiBaBo995/GestureKeys/tree/main)
+
 ![Minecraft 1.21.1](https://img.shields.io/badge/Minecraft-1.21.1-62B47A)
-![NeoForge 21.1.172+](https://img.shields.io/badge/NeoForge-21.1.172%2B-E99035)
+![Fabric Loader 0.16.14+](https://img.shields.io/badge/Fabric_Loader-0.16.14%2B-DBD0B4)
 ![Java 21](https://img.shields.io/badge/Java-21-437DB0)
 ![Client-side](https://img.shields.io/badge/Side-Client-80D9EA)
 [![Apache License 2.0](https://img.shields.io/badge/License-Apache--2.0-437DB0)](LICENSE)
@@ -20,7 +21,8 @@ recognition, glass interfaces, and live appearance previews.
 
 ![In-game gesture overlay with a drawing trail, settings gear, and recognition result](docs/gesture-overlay.png)
 
-Screenshots show the Simplified Chinese interface. English UI text is also included in the mod.
+The overview screenshots show the Simplified Chinese interface. English UI text is also included.
+See the [Fabric launch record](docs/fabric-verification.md) for current Fabric captures and check scope.
 
 [Installation](#installation) · [Quick start](#quick-start) ·
 [Gestures and actions](#gestures-and-actions) · [Appearance](#appearance) ·
@@ -31,11 +33,14 @@ Screenshots show the Simplified Chinese interface. English UI text is also inclu
 | Component | Requirement |
 | --- | --- |
 | Minecraft | **Java Edition 1.21.1** |
-| Mod loader | **NeoForge 21.1.172 or a newer 21.1 release** |
+| Mod loader | **Fabric Loader 0.16.14 or newer** |
+| Fabric API | **0.116.17+1.21.1** (required) |
+| Mod Menu | **11.0.3** (optional settings shortcut) |
 | Java | **21** |
 | Install location | The client instance's `mods` folder |
 
-Place `gesturekeys-1.0.0.jar` in the `mods` folder and launch the game.
+Place `gesturekeys-fabric-1.21.1-1.0.0.jar` in the `mods` folder and launch the game.
+Install Fabric API for Minecraft 1.21.1 alongside the mod. Mod Menu is optional.
 No server installation is required. If you build from source, the installable JAR is generated
 in `build/libs/`; files ending in `-sources.jar` contain source code.
 
@@ -52,7 +57,8 @@ in `build/libs/`; files ending in `-sources.jar` contain source code.
 4. Use **Test recognition** to check the result, save the gesture, and return to the game.
 5. Hold **Left Alt** again, draw the gesture with the left mouse button, and release Alt to execute.
 
-You can also open settings from the mod list's configuration entry or with `/gesturekeys config`.
+With Mod Menu installed, its configuration button opens settings. The gear and
+`/gesturekeys config` also work without Mod Menu.
 
 ### Drawing controls
 
@@ -189,7 +195,7 @@ directly.
 
 ### Can gestures run server commands?
 
-Command actions use NeoForge's local client-command dispatcher and do not automatically send
+Command actions use Fabric API's local client-command dispatcher and do not automatically send
 commands to the server.
 
 ### Does opening the interface pause the game?
@@ -202,7 +208,8 @@ continue running.
 
 Blur uses two half-resolution passes, trails are batched, and live color changes reuse render
 targets. In a local RTX 4060 Laptop test at 1080p, the median GPU time for the mod's rendering
-dropped from about **0.59 ms** before the update to about **0.25–0.35 ms** across the current styles.
+dropped from about **0.59 ms** before the visual update to about **0.25–0.35 ms**.
+These are historical NeoForge measurements; they are not a Fabric performance benchmark.
 
 This measures eight panels and one trail. **It is not total game frame time and does not guarantee
 frame rates on other hardware.** Other GPUs and third-party rendering-mod combinations still
@@ -243,55 +250,33 @@ dependencies. These examples use Windows PowerShell.
 .\gradlew.bat runClient
 ```
 
-`neo_version` selects the compile and runtime version. `neo_min_version` independently sets the
-minimum version required to install the mod. For example, this runs against a newer version
-without raising the minimum requirement:
+`minecraft_version`, `loader_version`, and `fabric_version` pin the target game, Fabric Loader,
+and Fabric API. `modmenu_version` selects the optional Mod Menu development integration.
+This branch uses Fabric Loom and Mojang mappings; `main` remains the NeoForge implementation.
+
+### Client launch check
+
+An opt-in development harness opens the settings, appearance, color picker, action picker, and
+all glass styles, then checks shader reload, in-world key actions, and a local client command.
+It runs in a separate game directory and exits automatically.
 
 ```powershell
-.\gradlew.bat -Pneo_version=21.1.264 runClient
+.\gradlew.bat -PlaunchCheck runClient
 ```
 
-### Automated checks
+Reports and frame captures are written to `build/fabric-launch-check`; the temporary game
+instance is `run-fabric-check`. The harness source is only compiled with `-PlaunchCheck`.
+The [Fabric launch record](docs/fabric-verification.md) documents 28 successful runtime checks
+and their limitations. The prior NeoForge checks and performance records remain in [docs/verification.md](docs/verification.md)
+for reference and do not establish Fabric compatibility. The old `src/smoke` harness is
+NeoForge-specific and is not compiled by this branch.
 
-The following checks were completed as of **October 27, 2026**. Raw reports and screenshots are in
-the [verification record](docs/verification.md) (Chinese). These results are from an earlier
-feature version; the subsequent wheel paging, page-layout fix, and license updates were not tested.
-
-| Check | Result |
-| --- | --- |
-| Unit tests | 26 passed |
-| Client functionality regression checks | 32 passed |
-| Appearance, preview, and rendering checks | 61 passed |
-
-Unit tests cover multi-stroke paths, direction and scale handling, hand-drawn aspect-ratio
-tolerance, rejection of similar gestures, tick timing, configuration persistence and recovery,
-legacy migration, color conversion, and trail smoothing.
-
-```powershell
-# Client functionality regression checks
-.\gradlew.bat -Psmoke runClient
-
-# Appearance, live previews, and performance; includes functionality regression checks
-.\gradlew.bat -PvisualSmoke runClient
-```
-
-| Flag | Separate development instance | Reports and frame captures |
-| --- | --- | --- |
-| `-Psmoke` | `run-smoke` | `build/smoke` |
-| `-PvisualSmoke` | `run-visual-smoke` | `build/visual-smoke` and `build/smoke` |
-
-The checks use the mod's internal input and screen APIs in a test world, then exit automatically.
-Performance checks cover 854×480 and 1920×1080, trails with 80 and 4096 points, and a comparison
-with the previous renderer. Each mode warms up for 35 frames before sampling 80 frames, recording
-median CPU time, median GPU time, and GPU P95.
-
-Physical Alt input, window-focus changes, multiplayer servers, other GPUs, and third-party
-rendering-mod combinations still need full manual regression checks in the target instance.
+Physical Alt input, window-focus changes, multiplayer servers, and third-party rendering-mod
+combinations still need manual regression checks in the target instance.
 
 ### Release builds
 
-`src/smoke` is compiled only when a check flag is specified. Before publishing, run a regular
-build to exclude the check code and baseline shaders:
+Before publishing, run a regular build without `-PlaunchCheck` to exclude development checks:
 
 ```powershell
 .\gradlew.bat clean build

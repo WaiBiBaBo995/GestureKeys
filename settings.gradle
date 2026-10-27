@@ -1,7 +1,12 @@
 pluginManagement {
     repositories {
+        mavenCentral()
+        maven {
+            url = 'https://maven2.fabricmc.net/'
+            content { includeGroupByRegex 'net.fabricmc.*'; includeGroup 'fabric-loom'; includeGroup 'fabric-loom.fabric-loom.gradle.plugin' }
+            metadataSources { mavenPom(); artifact(); ignoreGradleMetadataRedirection() }
+        }
         gradlePluginPortal()
-        maven { url = 'https://maven.neoforged.net/releases' }
     }
 }
 rootProject.name = 'GestureKeys'
