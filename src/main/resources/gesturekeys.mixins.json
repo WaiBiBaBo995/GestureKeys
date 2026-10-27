@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"com.pureneko.gesturekeys.mixin","compatibilityLevel":"JAVA_21","client":["KeyMappingAccessor","KeyMappingMixin"],"injectors":{"defaultRequire":1}}

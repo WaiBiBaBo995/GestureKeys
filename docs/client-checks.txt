@@ -1,0 +1,32 @@
+PASS three numeric preferences use sliders
+PASS shader toggle is directly below glass strength slider
+PASS threshold slider clamps minimum
+PASS threshold slider clamps maximum
+PASS slider keyboard moves one percent
+PASS margin slider clamps minimum
+PASS margin slider clamps maximum
+PASS glass slider clamps minimum
+PASS glass slider clamps maximum
+PASS slider changes remain a draft
+PASS sliders persist after save and toggle rebuild
+PASS cancel discards slider draft
+PASS glass shader compiled
+PASS key accessor mixin
+PASS inventory action dispatched
+PASS one tick hold active
+PASS one tick hold released
+PASS long hold active
+PASS screen cancels hold
+PASS client command opens settings
+PASS fallback completed
+PASS multistroke gesture executes inventory
+PASS successful gesture is silent
+PASS empty gesture release stays silent
+PASS short gesture gives brief unrecognized feedback
+PASS conflicting gestures give brief conflict feedback
+PASS cleared gesture release stays silent
+PASS gear settings persists
+PASS settings pauses single player
+PASS escape cancels gesture
+PASS shader survives resource reload
+PASS OpenGL render state

@@ -1,0 +1,61 @@
+PASS strength previews in draft
+PASS strength preview does not touch STORE
+PASS style cycle previews without saving 0
+PASS style cycle previews without saving 1
+PASS style cycle previews without saving 2
+PASS style cycle previews without saving 3
+PASS style cycle previews without saving 4
+PASS style cycle previews without saving 5
+PASS style cycle previews without saving 6
+PASS style cycle previews without saving 7
+PASS style cycle previews without saving 8
+PASS style cycle previews without saving 9
+PASS style button reaches nine materials and off
+PASS HEX previews interface tint immediately
+PASS palette keeps parent draft isolated
+PASS canceling palette restores parent tint
+PASS trail HEX previews independently
+PASS palette done commits only parent draft
+PASS cancel preferences restores all saved appearance
+PASS save persists style and both independent colors
+PASS appearance survives disk reload
+PASS renders liquid
+PASS trail shaders loaded 1
+PASS renders frosted
+PASS trail shaders loaded 2
+PASS renders glassmorphism
+PASS trail shaders loaded 3
+PASS renders acrylic
+PASS trail shaders loaded 4
+PASS renders mica
+PASS trail shaders loaded 5
+PASS renders smoked
+PASS trail shaders loaded 6
+PASS renders gradient
+PASS trail shaders loaded 7
+PASS renders aurora
+PASS trail shaders loaded 8
+PASS renders crystal
+PASS trail shaders loaded 9
+PASS renders off
+PASS trail shaders loaded 10
+PASS frame uses current preview appearance 0
+PASS frame uses current preview appearance 1
+PASS strength reaches renderer without save
+PASS style uniform changed on next frame
+PASS frame uses current preview appearance 2
+PASS frame uses current preview appearance 3
+PASS interface tint updates renderer before save
+PASS frame uses current preview appearance 4
+PASS HSV mouse drag changes preview
+PASS live palette keeps saved config untouched
+PASS frame uses current preview appearance 5
+PASS trail tint updates renderer before save
+PASS incomplete HEX cannot apply
+PASS canceling live preview restores saved config
+PASS frame uses current preview appearance 6
+PASS preferences controls fit compact GUI
+PASS frame uses current preview appearance 7
+PASS frame uses current preview appearance 8
+PASS glass fallback remains usable with trail shader
+PASS final render has no OpenGL errors

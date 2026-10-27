@@ -1,0 +1,54 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = mod_version
+group = 'com.pureneko.gesturekeys'
+base.archivesName = 'gesturekeys'
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.withSourcesJar()
+
+neoForge {
+    version = project.neo_version
+    runs {
+        client {
+            client()
+            if (project.hasProperty('smoke') || project.hasProperty('visualSmoke')) {
+                systemProperty project.hasProperty('visualSmoke') ? 'gesturekeys.visualSmoke' : 'gesturekeys.smoke', 'true'
+                gameDirectory = project.file(project.hasProperty('visualSmoke') ? 'run-visual-smoke' : 'run-smoke')
+            }
+        }
+    }
+    mods {
+        gesturekeys { sourceSet sourceSets.main }
+    }
+}
+
+// Opt-in in-process integration checks; never included in normal release builds.
+if (project.hasProperty('smoke') || project.hasProperty('visualSmoke')) sourceSets.main.java.srcDir('src/smoke/java')
+
+if (project.hasProperty('visualSmoke')) sourceSets.main.resources.srcDir('src/smoke/resources')
+
+repositories { mavenCentral() }
+dependencies {
+    testImplementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.named('processResources', ProcessResources) {
+    inputs.properties(mod_version: project.version, neo_min_version: project.neo_min_version)
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(mod_version: project.version, neo_min_version: project.neo_min_version)
+    }
+}
+tasks.named('test', Test) { useJUnitPlatform() }
+tasks.withType(Jar).configureEach {
+    from('LICENSE')
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes('Implementation-Title': 'GestureKeys', 'Implementation-Version': project.version)
+}

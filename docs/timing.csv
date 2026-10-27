@@ -1,0 +1,14 @@
+mode,cpu_median_ms,gpu_median_ms,gpu_p95_ms,samples
+original-liquid-80points,0.4735,0.2806,0.8325,80
+new-liquid-80points,0.4091,0.0748,0.0788,80
+new-frosted-80points,0.4813,0.0686,0.0707,80
+new-glassmorphism-80points,0.4100,0.0696,0.0737,80
+new-acrylic-80points,0.3312,0.0686,0.0717,80
+new-mica-80points,0.3238,0.0696,0.2376,80
+new-smoked-80points,0.3633,0.0717,0.5417,80
+new-gradient-80points,0.3645,0.0737,0.0768,80
+new-aurora-80points,0.3441,0.0748,0.0768,80
+new-crystal-80points,0.3745,0.0758,0.0788,80
+new-off-80points,0.7926,0.2888,1.2524,80
+original-liquid-4096points,7.8981,25.4689,32.8284,80
+new-liquid-4096points,1.8322,0.3574,0.8110,80

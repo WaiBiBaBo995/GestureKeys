@@ -1,0 +1,3 @@
+Minecraft 1.21.1 / NeoForge 21.1.172
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2
+Java: 21.0.11
