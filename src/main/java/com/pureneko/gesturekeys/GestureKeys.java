@@ -22,6 +22,7 @@ import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.common.NeoForge;
@@ -56,6 +57,10 @@ public final class GestureKeys {
     bus.addListener(com.pureneko.gesturekeys.client.TrailRenderer::registerShader);
     NeoForge.EVENT_BUS.addListener(this::tick);
     NeoForge.EVENT_BUS.addListener(this::commands);
+    NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.LOWEST, false,
+        ScreenEvent.Opening.class, event -> {
+          if (event.getNewScreen() != null) ActionExecutor.cancel();
+        });
     container.registerExtensionPoint(
         IConfigScreenFactory.class, (c, parent) -> new SettingsScreen(parent));
   }

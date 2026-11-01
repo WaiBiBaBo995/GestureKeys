@@ -35,11 +35,13 @@ import net.neoforged.neoforge.client.event.RenderFrameEvent;
 public final class ClientSmokeTest {
   private static int stage, ticks, stageTick;
   private static String screenshot;
-  private static final Path OUT = Path.of("../build/smoke");
+  private static final Path OUT = Path.of(System.getProperty("gesturekeys.smoke.output", "../build/smoke"));
   private static GestureConfig.Binding binding;
   private static SettingsScreen settings;
   private static final List<String> checks = new ArrayList<>();
   private static boolean done;
+  private static boolean inputChecked;
+  private static boolean sequenceChecked;
   private static long captureAfter;
   private static GestureScreen preparedGesture;
 
@@ -217,6 +219,15 @@ public final class ClientSmokeTest {
         capture("09-resized.png");
         next();
       } else if (stage == 19 && ticks - stageTick > 15) {
+        if (!inputChecked) {
+          if (!InputCompatibilitySmoke.tick(checks)) return;
+          inputChecked = true;
+        }
+        if (!sequenceChecked) {
+          if (!SequenceSmoke.tick(checks)) return;
+          sequenceChecked = true;
+        }
+        if (!CommandRoutingSmoke.tick(checks)) return;
         Files.createDirectories(OUT);
         Files.write(OUT.resolve("checks.txt"), checks);
         done = true;

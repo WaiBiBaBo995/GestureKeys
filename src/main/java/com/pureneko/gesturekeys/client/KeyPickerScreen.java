@@ -20,7 +20,7 @@ public final class KeyPickerScreen extends GlassScreen {
   private int pages = 1;
   private GlassButton previous, next;
 
-  public KeyPickerScreen(EditGestureScreen parent, Consumer<KeyMapping> choose) {
+  public KeyPickerScreen(net.minecraft.client.gui.screens.Screen parent, Consumer<KeyMapping> choose) {
     super(Component.translatable("gesturekeys.key.pick"), parent);
     this.choose = choose;
   }

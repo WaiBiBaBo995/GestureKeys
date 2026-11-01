@@ -1,0 +1,45 @@
+PASS client reaches title screen
+PASS activation key registered
+PASS physical binding readable
+PASS glass shader loaded
+PASS trail shaders loaded
+PASS settings renders without GL errors
+PASS palette opens
+PASS action picker renders
+PASS action picker wheel handler runs
+PASS optional Mod Menu factory opens settings
+PASS style renders: liquid
+PASS style renders: frosted
+PASS style renders: glassmorphism
+PASS style renders: acrylic
+PASS style renders: mica
+PASS style renders: smoked
+PASS style renders: gradient
+PASS style renders: aurora
+PASS style renders: crystal
+PASS style renders: off
+PASS shaders survive resource reload
+PASS single-player world loads
+PASS key accessor mixin applied
+PASS gesture action opens inventory
+PASS timed action holds jump
+PASS key state mixin exposes held action
+PASS opening screen releases action
+PASS Fabric local client command opens settings
+PASS unbound custom subclass receives press callback
+PASS hardware release does not interrupt synthetic hold
+PASS another unbound mapping is not triggered
+PASS hold does not repeatedly dispatch press callbacks
+PASS subclass receives release at deadline
+PASS second single click repeats subclass action
+PASS plain mapping is down and consumes exactly one click
+PASS plain mapping releases
+PASS shared physical binding only dispatches selected mapping
+PASS focus loss releases subclass and pending hold
+PASS toggle mapping retains its native toggled state
+PASS second gesture toggles native mapping off
+PASS synthetic hold toggles native mapping on
+PASS physical press can toggle off during synthetic hold
+PASS synthetic expiry preserves a physical scan-code hold
+PASS scan-code hardware release retains virtual hold
+PASS scan-code virtual release uses latest hardware state

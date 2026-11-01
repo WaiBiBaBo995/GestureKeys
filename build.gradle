@@ -16,7 +16,8 @@ neoForge {
             client()
             if (project.hasProperty('smoke') || project.hasProperty('visualSmoke')) {
                 systemProperty project.hasProperty('visualSmoke') ? 'gesturekeys.visualSmoke' : 'gesturekeys.smoke', 'true'
-                gameDirectory = project.file(project.hasProperty('visualSmoke') ? 'run-visual-smoke' : 'run-smoke')
+                gameDirectory = project.file(project.findProperty('smokeDir') ?: (project.hasProperty('visualSmoke') ? 'run-visual-smoke' : 'run-smoke'))
+                systemProperty 'gesturekeys.smoke.output', project.layout.buildDirectory.dir('smoke').get().asFile.absolutePath
             }
         }
     }

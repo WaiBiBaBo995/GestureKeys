@@ -1,0 +1,268 @@
+[0111月2026 15:37:03.696] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientdev, --version, 21.1.172, --assetIndex, 17, --assetsDir, C:\\Users\\PureNeko\\.gradle\\caches\\neoformruntime\\assets, --gameDir, ., --fml.fmlVersion, 4.0.39, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.172, --fml.neoFormVersion, 20240808.144430]
+[0111月2026 15:37:03.701] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 21.0.11+9-LTS-jvmci-23.1-b92
+[0111月2026 15:37:03.703] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.4+main.d2e20e43 starting: java version 21.0.11 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[0111月2026 15:37:03.833] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[0111月2026 15:37:03.956] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[0111月2026 15:37:04.343] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[0111月2026 15:37:04.440] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/PureNeko/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23138!/ Service=ModLauncher Env=CLIENT
+[0111月2026 15:37:04.678] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 GL version 4.6.0 NVIDIA 581.80, NVIDIA Corporation
+[0111月2026 15:37:04.850] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[0111月2026 15:37:04.852] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]:
+     Mod List:
+		Name Version (Mod Id)
+
+		GestureKeys 1.1.0 (gesturekeys)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.172 (neoforge)
+[0111月2026 15:37:06.719] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[0111月2026 15:37:06.730] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientdev' with arguments [--version, 21.1.172, --gameDir, ., --assetsDir, C:\Users\PureNeko\.gradle\caches\neoformruntime\assets, --assetIndex, 17]
+[0111月2026 15:37:08.627] [pool-7-thread-1/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[0111月2026 15:37:10.254] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 229 Datafixer optimizations took 2250 milliseconds
+[0111月2026 15:37:16.272] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[0111月2026 15:37:16.273] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[0111月2026 15:37:16.275] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[0111月2026 15:37:16.276] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[0111月2026 15:37:16.276] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[0111月2026 15:37:16.412] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/E:/ModProject/GestureKeys/build/moddev/artifacts/neoforge-21.1.172.jar%23189!/assets/.mcassetsroot' uses unexpected schema
+[0111月2026 15:37:16.413] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/E:/ModProject/GestureKeys/build/moddev/artifacts/neoforge-21.1.172.jar%23189!/data/.mcassetsroot' uses unexpected schema
+[0111月2026 15:37:16.431] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[0111月2026 15:37:16.437] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[0111月2026 15:37:16.559] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.3+5
+[0111月2026 15:37:16.812] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.172, for MC 1.21.1
+[0111月2026 15:37:18.229] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[0111月2026 15:37:18.354] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/gesturekeys, mod/neoforge
+[0111月2026 15:37:18.860] [Worker-Main-15/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[0111月2026 15:37:19.188] [Worker-Main-7/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[0111月2026 15:37:22.289] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[0111月2026 15:37:22.290] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[0111月2026 15:37:22.508] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek(R) Audio)
+[0111月2026 15:37:22.510] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[0111月2026 15:37:22.594] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[0111月2026 15:37:22.601] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[0111月2026 15:37:22.601] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[0111月2026 15:37:22.602] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[0111月2026 15:37:22.602] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[0111月2026 15:37:22.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[0111月2026 15:37:22.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[0111月2026 15:37:22.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[0111月2026 15:37:22.606] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[0111月2026 15:37:22.766] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[0111月2026 15:37:22.768] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[0111月2026 15:37:22.768] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[0111月2026 15:37:22.769] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[0111月2026 15:37:22.769] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[0111月2026 15:37:22.808] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[0111月2026 15:37:22.876] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[0111月2026 15:37:23.348] [Download-1/WARN] [com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService/]: Couldn't look up profile properties for 380df991-f603-344c-a090-369bad2a924a
+com.mojang.authlib.exceptions.MinecraftClientException: Failed to read from https://sessionserver.mojang.com/session/minecraft/profile/380df991f603344ca090369bad2a924a?unsigned=false due to Read timed out
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:108) ~[authlib-6.0.54.jar%23118!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:57) ~[authlib-6.0.54.jar%23118!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fetchProfileUncached(YggdrasilMinecraftSessionService.java:201) ~[authlib-6.0.54.jar%23118!/:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fetchProfile(YggdrasilMinecraftSessionService.java:171) ~[authlib-6.0.54.jar%23118!/:?]
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.Minecraft.lambda$new$1(Minecraft.java:426) ~[neoforge-21.1.172.jar%23189!/:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:278) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:304) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[?:?]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1460) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066) ~[?:?]
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:291) ~[?:?]
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:347) ~[?:?]
+	at java.base/java.io.BufferedInputStream.implRead(BufferedInputStream.java:420) ~[?:?]
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:399) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:827) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:759) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1706) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1615) ~[?:?]
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:531) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:307) ~[?:?]
+	at MC-BOOTSTRAP/authlib@6.0.54/com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:84) ~[authlib-6.0.54.jar%23118!/:?]
+	... 8 more
+[0111月2026 15:37:24.927] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/gesturekeys, mod/neoforge
+[0111月2026 15:37:24.931] [Worker-Main-3/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[0111月2026 15:37:24.968] [Worker-Main-10/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[0111月2026 15:37:25.694] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[0111月2026 15:37:25.694] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[0111月2026 15:37:25.763] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek(R) Audio)
+[0111月2026 15:37:25.764] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[0111月2026 15:37:25.849] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[0111月2026 15:37:25.853] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[0111月2026 15:37:25.854] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[0111月2026 15:37:25.855] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[0111月2026 15:37:25.856] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[0111月2026 15:37:25.859] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[0111月2026 15:37:25.860] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[0111月2026 15:37:25.860] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[0111月2026 15:37:25.861] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[0111月2026 15:37:25.871] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[0111月2026 15:37:25.872] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[0111月2026 15:37:25.872] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[0111月2026 15:37:25.873] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[0111月2026 15:37:25.873] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[0111月2026 15:37:25.896] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[0111月2026 15:37:25.956] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[0111月2026 15:37:32.768] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1290 recipes
+[0111月2026 15:37:32.953] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1399 advancements
+[0111月2026 15:37:33.274] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.21.1
+[0111月2026 15:37:33.274] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[0111月2026 15:37:33.834] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[0111月2026 15:37:33.861] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: 准备生成区域中：2%
+[0111月2026 15:37:33.999] [progressListener/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 155 ms
+[0111月2026 15:37:34.001] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[0111月2026 15:37:34.038] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[0111月2026 15:37:34.039] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[0111月2026 15:37:34.693] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:a52091e7] logged in with entity id 1 at (1.5, -60.0, -7.5)
+[0111月2026 15:37:34.745] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev加入了游戏
+[0111月2026 15:37:35.606] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2 advancements
+[0111月2026 15:37:36.404] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0111月2026 15:37:36.432] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:36.464] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:36.464] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:38.856] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0111月2026 15:37:38.867] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:38.924] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:38.925] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:39.251] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, mod/gesturekeys, mod/neoforge
+[0111月2026 15:37:39.256] [Worker-Main-2/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.1.05.hex, loading
+[0111月2026 15:37:39.256] [Worker-Main-9/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-15.1.05.hex, loading
+[0111月2026 15:37:39.304] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0111月2026 15:37:39.320] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:39.322] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:39.322] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:40.133] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[0111月2026 15:37:40.134] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[0111月2026 15:37:40.252] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on 扬声器 (Realtek(R) Audio)
+[0111月2026 15:37:40.252] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[0111月2026 15:37:40.351] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[0111月2026 15:37:40.356] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[0111月2026 15:37:40.357] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[0111月2026 15:37:40.357] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[0111月2026 15:37:40.358] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[0111月2026 15:37:40.362] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[0111月2026 15:37:40.363] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[0111月2026 15:37:40.363] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[0111月2026 15:37:40.363] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[0111月2026 15:37:40.376] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[0111月2026 15:37:40.376] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[0111月2026 15:37:40.377] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[0111月2026 15:37:40.377] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[0111月2026 15:37:40.377] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[0111月2026 15:37:40.406] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[0111月2026 15:37:40.475] [Render thread/INFO] [net.neoforged.neoforge.client.entity.animation.json.AnimationLoader/]: Loaded 0 entity animations
+[0111月2026 15:37:44.554] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0111月2026 15:37:44.564] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:44.566] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:44.566] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:46.126] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 23 advancements
+[0111月2026 15:37:50.104] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[0111月2026 15:37:50.112] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:50.114] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:50.114] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:52.090] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /advancement (grant|revoke)
+[0111月2026 15:37:52.092] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /attribute <target> <attribute> (get|base|modifier)
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /execute (run|if|unless|as|at|store|positioned|rotated|facing|align|anchored|in|summon|on)
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /bossbar (add|remove|list|set|get)
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /clear [<targets>]
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /clone (<begin>|from)
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /damage <target> <amount> [<damageType>]
+[0111月2026 15:37:52.093] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /data (merge|get|remove|modify)
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /datapack (enable|disable|list)
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /debug (start|stop|function)
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /defaultgamemode <gamemode>
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /difficulty [peaceful|easy|normal|hard]
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /effect (clear|give)
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /me <action>
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /enchant <targets> <enchantment> [<level>]
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /experience (add|set|query)
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /xp -> experience
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /fill <from> <to> <block> [replace|keep|outline|hollow|destroy]
+[0111月2026 15:37:52.094] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /fillbiome <from> <to> <biome> [replace]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /forceload (add|remove|query)
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /function <name> [<arguments>|with]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /gamemode <gamemode> [<target>]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /gamerule (announceAdvancements|blockExplosionDropDecay|commandBlockOutput|commandModificationBlockLimit|disableElytraMovementCheck|disableRaids|doDaylightCycle|doEntityDrops|doFireTick|doImmediateRespawn|doInsomnia|doLimitedCrafting|doMobLoot|doMobSpawning|doPatrolSpawning|doTileDrops|doTraderSpawning|doVinesSpread|doWardenSpawning|doWeatherCycle|drowningDamage|enderPearlsVanishOnDeath|fallDamage|fireDamage|forgiveDeadPlayers|freezeDamage|globalSoundEvents|keepInventory|lavaSourceConversion|logAdminCommands|maxCommandChainLength|maxCommandForkCount|maxEntityCramming|mobExplosionDropDecay|mobGriefing|naturalRegeneration|playersNetherPortalCreativeDelay|playersNetherPortalDefaultDelay|playersSleepingPercentage|projectilesCanBreakBlocks|randomTickSpeed|reducedDebugInfo|sendCommandFeedback|showDeathMessages|snowAccumulationHeight|spawnChunkRadius|spawnRadius|spectatorsGenerateChunks|tntExplosionDropDecay|universalAnger|waterSourceConversion)
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /give <targets> <item> [<count>]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /help [<command>]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /item (replace|modify)
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /kick <targets> [<reason>]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /kill [<targets>]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /list [uuids]
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /locate (structure|biome|poi)
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /loot (replace|insert|give|spawn)
+[0111月2026 15:37:52.095] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /msg <targets> <message>
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tell -> msg
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /w -> msg
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /particle <name> [<pos>]
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /place (feature|jigsaw|structure|template)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /playsound <sound> [master|music|record|weather|block|hostile|neutral|player|ambient|voice]
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /random (value|roll|reset)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /reload
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /recipe (give|take)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /return (<value>|fail|run)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /ride <target> (mount|dismount)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /say <message>
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /schedule (function|clear)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /scoreboard (objectives|players)
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /seed
+[0111月2026 15:37:52.096] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /setblock <pos> <block> [destroy|keep|replace]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /spawnpoint [<targets>]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /setworldspawn [<pos>]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /spectate [<target>]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /spreadplayers <center> <spreadDistance> <maxRange> (<respectTeams>|under)
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /stopsound <targets> [*|master|music|record|weather|block|hostile|neutral|player|ambient|voice]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /summon <entity> [<pos>]
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tag <targets> (add|remove|list)
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /team (list|add|remove|empty|join|leave|modify)
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /teammsg <message>
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tm -> teammsg
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /teleport (<location>|<destination>|<targets>)
+[0111月2026 15:37:52.097] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tp -> teleport
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tellraw <targets> <message>
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /tick (query|rate|step|sprint|unfreeze|freeze)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /time (set|add|query)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /title <targets> (clear|reset|title|subtitle|actionbar|times)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /trigger <objective> [add|set]
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /weather (clear|rain|thunder)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /worldborder (add|set|center|damage|get|warning)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /jfr (start|stop)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /test (run|runmultiple|runall|runthese|runclosest|runthat|runfailed|verify|verifyclass|locate|resetclosest|resetthese|resetthat|export|exportclosest|exportthese|exportthat|clearthat|clearthese|clearall|import|stop|pos|create)
+[0111月2026 15:37:52.098] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /raid (start|stop|check|sound|spawnleader|setomen|glow)
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /debugpath <to>
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /debugmobspawning (monster|creature|ambient|axolotls|underground_water_creature|water_creature|water_ambient|misc)
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /warden_spawn_tracker (clear|set)
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /spawn_armor_trims
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /serverpack (push|pop)
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /publish [<allowCommands>]
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /neoforge (tps|track|entity|generate|dimensions|mods|tags|dump|day|data_components)
+[0111月2026 15:37:52.099] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /config showfile <mod> <type>
+[0111月2026 15:37:52.100] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /gk_routing_priority
+[0111月2026 15:37:52.100] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /gk_routing_hidden
+[0111月2026 15:37:52.100] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] /gk_routing_failure
+[0111月2026 15:37:52.358] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [CHAT] 你悄悄地对Dev说：111
+[0111月2026 15:37:52.361] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [CHAT] Dev悄悄地对你说：111
+[0111月2026 15:37:53.684] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] gk_routing_server_failure
+[0111月2026 15:37:54.235] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] 未知或不完整的命令。错误见下
+[0111月2026 15:37:54.235] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] gk_routing_missing_command<--[此处]
+[0111月2026 15:37:54.741] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[0111月2026 15:37:54.758] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: 连接中断
+[0111月2026 15:37:54.758] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev退出了游戏
+[0111月2026 15:37:54.767] [Server thread/INFO] [net.minecraft.server.network.ServerCommonPacketListenerImpl/]: Stopping singleplayer server as player logged out
+[0111月2026 15:37:54.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[0111月2026 15:37:54.819] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[0111月2026 15:37:54.819] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[0111月2026 15:37:55.942] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:overworld
+[0111月2026 15:37:55.957] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_nether
+[0111月2026 15:37:55.965] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[GestureKeys smoke]'/minecraft:the_end
+[0111月2026 15:37:55.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (gesturekeys-smoke-1793518652016): All chunks are saved
+[0111月2026 15:37:55.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[0111月2026 15:37:55.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[0111月2026 15:37:55.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
