@@ -23,21 +23,22 @@ import org.lwjgl.opengl.GL11;
 
 /** Opt-in development code, excluded from ordinary release builds. */
 public final class FabricLaunchCheck {
-  private static final Path OUT = Path.of("../build/fabric-launch-check");
+  private static final Path OUT = Path.of(System.getProperty("gesturekeys.check.output", "../build/fabric-launch-check"));
   private static final List<String> checks = new ArrayList<>();
   private static int ticks, stage, since;
-  private static boolean done;
+  private static boolean done, inputChecked, sequenceChecked;
   private static PreferencesScreen preferences;
 
   public static void register() {
     ClientTickEvents.END_CLIENT_TICK.register(FabricLaunchCheck::tick);
+    SequenceCheck.register();
   }
 
   private static void tick(Minecraft mc) {
     if (done) return;
     ticks++;
     mc.setWindowActive(true);
-    if (mc.getOverlay() != null || ticks - since < 25) return;
+    if (mc.getOverlay() != null || (stage != 22 && ticks - since < 25)) return;
     try {
       Files.createDirectories(OUT);
       if (ticks > 3600) throw new IllegalStateException("Client check timeout at stage " + stage);
@@ -127,6 +128,16 @@ public final class FabricLaunchCheck {
       } else if (stage == 21) {
         check("Fabric local client command opens settings", mc.screen instanceof SettingsScreen);
         capture(mc, "world-settings.png");
+      } else if (stage == 22) {
+        if (!inputChecked) {
+          if (!InputCompatibilityCheck.tick(checks)) return;
+          inputChecked = true;
+        }
+        if (!sequenceChecked) {
+          if (!SequenceCheck.tick(checks)) return;
+          sequenceChecked = true;
+        }
+        if (!CommandRoutingCheck.tick(checks)) return;
         Files.writeString(OUT.resolve("checks.txt"), String.join(System.lineSeparator(), checks) + System.lineSeparator());
         done = true;
         mc.stop();

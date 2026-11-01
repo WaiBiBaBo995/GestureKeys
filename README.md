@@ -12,7 +12,7 @@
 ![Client-side](https://img.shields.io/badge/Side-Client-80D9EA)
 [![Apache License 2.0](https://img.shields.io/badge/License-Apache--2.0-437DB0)](LICENSE)
 
-- **Draw an action**: bind gestures to vanilla or modded game actions, or run local client commands.
+- **Draw an action**: bind gestures to vanilla or modded game actions, or run client and server commands.
 - **Use multiple strokes**: lift the mouse button and continue, with multiple samples per gesture.
 - **Choose from nine glass styles**: liquid glass, mica, crystal, and more, with independent
   interface and trail colors.
@@ -39,7 +39,7 @@ See the [Fabric launch record](docs/fabric-verification.md) for current Fabric c
 | Java | **21** |
 | Install location | The client instance's `mods` folder |
 
-Place `gesturekeys-fabric-1.21.1-1.0.0.jar` in the `mods` folder and launch the game.
+Place `gesturekeys-fabric-1.21.1-1.2.0.jar` in the `mods` folder and launch the game.
 Install Fabric API for Minecraft 1.21.1 alongside the mod. Mod Menu is optional.
 No server installation is required. If you build from source, the installable JAR is generated
 in `build/libs/`; files ending in `-sources.jar` contain source code.
@@ -53,7 +53,7 @@ in `build/libs/`; files ending in `-sources.jar` contain source code.
 1. Enter a world, hold **Left Alt**, and click the gear in the lower-left corner to open settings.
    You can then release Alt.
 2. Select **New gesture** and enter a name, such as “Open inventory.”
-3. Choose the corresponding **Game action**, record a sample, and select **Finish recording**.
+3. Open **Edit action sequence**, choose or add a game-action step, then record a sample and select **Finish recording**.
 4. Use **Test recognition** to check the result, save the gesture, and return to the game.
 5. Hold **Left Alt** again, draw the gesture with the left mouse button, and release Alt to execute.
 
@@ -95,19 +95,49 @@ Paging through actions preserves the search query; changing the query returns to
 | --- | --- |
 | Game action: click once | Trigger the action once and provide a pressed state for 1 tick |
 | Game action: timed hold | Keep the action pressed for **1–200 ticks**, defaulting to 1 tick |
-| Client command | Run a locally registered client command, with or without a leading `/` |
+| Command | Run registered client commands locally; send other commands to the server, with or without a leading `/` |
+| Wait | Wait **0–10 seconds** before continuing |
 
 Search for game actions by name. Vanilla actions and modded actions registered through `KeyMapping`
 are supported, including actions without a physical key binding. Changing the physical binding
 in the game's controls does not require reconfiguring the gesture.
+Gestures dispatch press/release callbacks to the selected action, including custom `KeyMapping`
+subclasses. Other actions sharing its physical key are not triggered. Fabric preserves its native
+input APIs and does not include NeoForge's modifier extension.
 
 Normally, **20 ticks are about 1 second**; client stalls can affect the actual duration.
-Triggering the same action again restarts its timer. Simulated pressed states are released when
-you enter another screen, switch away from the game window, or leave the world.
+A new gesture interrupts the previous sequence and releases its simulated keys before starting.
+Opening any screen (including one opened by a sequence command), losing window focus, or leaving
+the world cancels the sequence and releases its keys. Closing the screen does not resume it.
 
-You can use `/gesturekeys` to try a client command. Unknown commands, invalid arguments, and
-execution failures display an error. **Commands are not automatically forwarded to the server.**
-The command itself may produce its own feedback.
+Commands follow chat-style routing: registered client commands such as `/gesturekeys` run locally;
+other commands, including `/help` and `/msg @s 111`, use the normal server-command interface.
+Singleplayer uses its integrated server. Local syntax errors are caught before execution. Server
+commands are sent unchanged; the server checks syntax and permissions and gives normal chat
+feedback. Selectors such as `@s` still require the appropriate permissions.
+
+### Run actions in sequence
+
+Open **Edit action sequence** from the gesture editor. Add game actions, commands, or waits;
+edit a row to set its action and timing. Rows support removal, moving up/down, and mouse-wheel
+paging. Done returns to the gesture draft; save the gesture to persist it. Cancel discards changes.
+Legacy single-action configurations continue working as one-step sequences.
+
+Each step completes and releases its simulated key before the next step. The first step starts
+immediately; subsequent steps default to a **0.2-second** gap after the previous step finishes.
+Gaps and waits range from **0–10 seconds**; holds range from **0.05–10 seconds**, in **0.05-second**
+increments. Game-action steps always occupy separate client input cycles, even with a zero gap.
+The entire sequence is checked before execution: a missing action, invalid local command, or
+unavailable server connection prevents earlier steps from running. Detectable local execution
+errors abort the sequence and identify the failing step. After a server command is sent, the
+sequence continues with its configured gap; asynchronous server errors do not abort it.
+
+For example: **Hotbar slot 2 → Swap item with offhand → Use item**. Start with the default gaps;
+increase the gap before Use item if the server needs longer to synchronize the swap. Use item
+follows vanilla right-click rules: the main hand or targeted block may consume the interaction
+before the offhand is tried. It does not guarantee offhand-only use.
+
+![Action sequence editor](docs/fabric/sequence-editor-1.2.0.png)
 
 ### Tune recognition
 
@@ -189,14 +219,16 @@ adjusting the sliders.
 
 ### Why do some modded key actions not work?
 
-GestureKeys triggers game actions through `KeyMapping`. Mods that listen directly to GLFW or raw
+GestureKeys triggers the selected `KeyMapping` through its click count and press/release callbacks.
+Mods that listen directly to GLFW or raw
 keyboard events need separate integration. Features absent from the action list cannot be bound
 directly.
 
 ### Can gestures run server commands?
 
-Command actions use Fabric API's local client-command dispatcher and do not automatically send
-commands to the server.
+Yes. Registered local client commands take priority; other commands use the normal chat-command
+interface to reach the server, including `/help`, `/msg @s 111` (with selector permission), and
+server/plugin commands. Server syntax and permission checks still apply.
 
 ### Does opening the interface pause the game?
 
@@ -266,7 +298,7 @@ It runs in a separate game directory and exits automatically.
 
 Reports and frame captures are written to `build/fabric-launch-check`; the temporary game
 instance is `run-fabric-check`. The harness source is only compiled with `-PlaunchCheck`.
-The [Fabric launch record](docs/fabric-verification.md) documents 28 successful runtime checks
+The [Fabric launch record](docs/fabric-verification.md) documents 88 successful runtime checks for 1.2.0
 and their limitations. The prior NeoForge checks and performance records remain in [docs/verification.md](docs/verification.md)
 for reference and do not establish Fabric compatibility. The old `src/smoke` harness is
 NeoForge-specific and is not compiled by this branch.

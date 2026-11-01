@@ -2,6 +2,7 @@ package com.pureneko.gesturekeys.input;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /** Deadlines are client ticks, so even a one-tick hold spans one complete input cycle. */
 public final class TickHolds<K> {
@@ -17,6 +18,10 @@ public final class TickHolds<K> {
 
   public boolean isDown(K key) {
     return deadlines.containsKey(key);
+  }
+
+  public Set<K> keys() {
+    return Set.copyOf(deadlines.keySet());
   }
 
   public void clear() {

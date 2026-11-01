@@ -1,5 +1,59 @@
 # Fabric 1.21.1 verification / 验证记录
 
+## 1.2.0 — 2026-11-01
+
+- Minecraft 1.21.1 / Fabric Loader 0.16.14 / Fabric API 0.116.17+1.21.1 / Java 21.0.11 / Mod Menu 11.0.3.
+- **34 unit tests** and **88 runtime checks** passed. 两端共享的序列/config/UI/测试已同步，Fabric 保留原生客户端指令、按键和 ScreenEvents API。
+- Checks cover ordered hotbar slot 2 → offhand swap → vanilla offhand use, editor drafts and timing, cancellation/replacement, pending-click ownership, physical input, toggles, and scan codes.
+- `/help` returns server help; `/msg @s 111` returns self-message feedback. The test confirms that `/msg` has signable arguments and uses the normal command-send path.
+- 本地同名命令优先；没有公开给客户端的服务端命令仍可执行；服务器失败/未知命令反馈后，后续步骤继续。打开界面仍取消序列。
+- Native final `Options.keyMappings` is preserved. Only the development harness temporarily replaces/restores reserved array entries for synthetic-key checks.
+
+```powershell
+.\gradlew.bat test build --offline
+.\gradlew.bat runClient -PlaunchCheck -PlaunchCheckDir=build/fabric-120-check --offline
+```
+
+Evidence / 原始结果：[88 checks](fabric/sequence-command-1.2.0-checks.txt)、[client log](fabric/sequence-command-1.2.0-client.log)。
+
+![Fabric sequence editor](fabric/sequence-editor-1.2.0.png)
+
+![Fabric compact step editor](fabric/sequence-step-compact-1.2.0.png)
+
+Tests used the integrated server with selector permission, not a multiplayer plugin server or hardware Alt input. Fabric does not gain NeoForge's modifier-specific mixin.
+
+## 1.1.0 — 2026-10-31
+
+Version 1.1.0 ports the selected-mapping press/release dispatch, timed holds, physical-input
+overlap, scan-code state tracking, and native toggle behavior from the NeoForge fix.
+Fabric client commands, registration, shaders, and optional Mod Menu integration are preserved.
+
+1.1.0 同步了 NeoForge 端的目标按键按下/释放派发、定时按住、物理输入重叠、扫描码状态跟踪和原版切换键行为。
+保留 Fabric 本地指令、注册、Shader 与可选 Mod Menu 接入。
+
+- `./gradlew.bat --offline build`: 26 unit tests passed / 26 项单元测试通过。
+- `./gradlew.bat --offline -PlaunchCheck runClient`: 45 runtime checks passed / 45 项运行检查通过。
+- The runtime check confirms GestureKeys 1.1.0 on Minecraft 1.21.1, Fabric Loader 0.16.14,
+  Fabric API 0.116.17+1.21.1, Mod Menu 11.0.3, Java 21.0.11 and RTX 4060 Laptop.
+- New coverage includes custom subclasses that bypass the parent `isDown`, unbound actions,
+  exact click counts and deadlines, repeated gestures, shared-key isolation, focus cancellation,
+  toggle keys, and physical scan-code holds/releases.
+- 新增检查覆盖绕过父类 `isDown` 的自定义子类、未绑定动作、点击计数与时限、重复触发、同键隔离、失焦取消、
+  原版切换键，以及扫描码物理按住/释放。
+
+Evidence / 原始结果：[45 checks](fabric/input-compatibility-1.1.0-checks.txt).
+
+Fabric has no NeoForge `KeyModifier` API, so the NeoForge-only modifier extension Mixin is not
+included. Mods with their own chord or raw-input checks may need separate adapters. The provided
+Mekanism JAR targets NeoForge and was not loaded in Fabric. Authentication and Mod Menu update
+requests timed out in this test environment; all in-game checks completed successfully.
+
+Fabric 没有 NeoForge 的 `KeyModifier` API，因此不包含其专用修饰键扩展 Mixin。
+自行检查组合键或原始输入的模组仍可能需要单独适配。用户提供的 Mekanism JAR 为 NeoForge 版，未在 Fabric 加载。
+本次身份认证及 Mod Menu 更新检查请求超时，游戏内检查全部完成。
+
+## Historical port / 历史移植记录
+
 Date / 日期：2026-10-27
 
 | Component / 项目 | Verified environment / 验证环境 |

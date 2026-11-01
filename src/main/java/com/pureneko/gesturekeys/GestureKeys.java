@@ -19,6 +19,7 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback;
 import com.mojang.brigadier.CommandDispatcher;
@@ -51,6 +52,7 @@ public final class GestureKeys implements ClientModInitializer {
     CoreShaderRegistrationCallback.EVENT.register(GlassRenderer::registerShader);
     CoreShaderRegistrationCallback.EVENT.register(com.pureneko.gesturekeys.client.TrailRenderer::registerShader);
     ClientTickEvents.START_CLIENT_TICK.register(this::tick);
+    ScreenEvents.BEFORE_INIT.register((client, screen, width, height) -> ActionExecutor.cancel());
     ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> commands(dispatcher));
     if (Boolean.getBoolean("gesturekeys.launchCheck")) {
       try {

@@ -41,8 +41,9 @@ loom {
             client()
             runDir 'run-fabric'
             if (project.hasProperty('launchCheck')) {
-                runDir 'run-fabric-check'
+                runDir (project.findProperty('launchCheckDir') ?: 'run-fabric-check')
                 vmArg '-Dgesturekeys.launchCheck=true'
+                vmArg '-Dgesturekeys.check.output=' + project.layout.buildDirectory.dir('fabric-launch-check').get().asFile.absolutePath
             }
         }
     }

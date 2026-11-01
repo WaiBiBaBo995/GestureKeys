@@ -14,6 +14,56 @@ class ConfigStoreTest {
   @TempDir Path directory;
 
   @Test
+  void sequenceRoundTripKeepsOrderCommandsAndIndependentTiming() throws Exception {
+    var store = new ConfigStore(directory.resolve("sequence.json"));
+    var binding = new GestureConfig.Binding();
+    binding.action.kind = GestureConfig.Kind.SEQUENCE;
+    var slot = new GestureConfig.Action();
+    slot.keyId = "key.hotbar.2";
+    var command = new GestureConfig.Action();
+    command.kind = GestureConfig.Kind.COMMAND;
+    command.command = "/gesturekeys";
+    command.delayTicks = 7;
+    var wait = new GestureConfig.Action();
+    wait.kind = GestureConfig.Kind.WAIT;
+    wait.ticks = 0;
+    wait.delayTicks = 200;
+    binding.action.steps = new ArrayList<>(List.of(slot, command, wait));
+    store.get().gestures.add(binding);
+    store.save();
+    var loaded = new ConfigStore(store.file());
+    loaded.load();
+    var steps = loaded.get().gestures.getFirst().action.steps;
+    assertEquals("key.hotbar.2", steps.getFirst().keyId);
+    assertEquals("/gesturekeys", steps.get(1).command);
+    assertEquals(7, steps.get(1).delayTicks);
+    assertEquals(0, steps.getLast().ticks);
+    assertEquals(200, steps.getLast().delayTicks);
+    var copy = ConfigStore.copy(loaded.get().gestures.getFirst());
+    copy.action.steps.clear();
+    assertEquals(3, steps.size());
+  }
+
+  @Test
+  void legacyActionsKeepTheirKindAndBecomeSingleExecutionSteps() throws Exception {
+    Path file = directory.resolve("old-actions.json");
+    Files.writeString(file, """
+        {"schemaVersion":1,"gestures":[
+          {"action":{"kind":"KEY","keyId":"key.jump","mode":"HOLD","ticks":37}},
+          {"action":{"kind":"COMMAND","command":"/gesturekeys"}}
+        ]}
+        """);
+    var store = new ConfigStore(file);
+    store.load();
+    assertNull(store.loadWarning());
+    var key = com.pureneko.gesturekeys.input.ActionSequence.snapshot(store.get().gestures.getFirst().action);
+    var command = com.pureneko.gesturekeys.input.ActionSequence.snapshot(store.get().gestures.getLast().action);
+    assertEquals(1, key.size());
+    assertEquals(37, key.getFirst().ticks());
+    assertEquals("gesturekeys", command.getFirst().command());
+  }
+
+  @Test
   void roundTripPreservesMultistrokesAndTicks() throws Exception {
     Path path = directory.resolve("gesturekeys.json");
     var store = new ConfigStore(path);

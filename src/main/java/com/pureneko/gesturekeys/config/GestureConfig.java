@@ -32,7 +32,9 @@ public final class GestureConfig {
 
   public enum Kind {
     KEY,
-    COMMAND
+    COMMAND,
+    WAIT,
+    SEQUENCE
   }
 
   public enum PressMode {
@@ -46,6 +48,9 @@ public final class GestureConfig {
     public String command = "";
     public PressMode mode = PressMode.CLICK;
     public int ticks = 1;
+    // Gap after the previous step finishes; ignored for the first step.
+    public int delayTicks = 4;
+    public List<Action> steps;
   }
 
   public static final class Binding {

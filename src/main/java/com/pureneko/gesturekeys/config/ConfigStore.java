@@ -93,12 +93,9 @@ public final class ConfigStore {
       }
       b.name = b.name == null ? "" : b.name.substring(0, Math.min(64, b.name.length()));
       if (b.action == null) b.action = new GestureConfig.Action();
-      if (b.action.kind == null) b.action.kind = GestureConfig.Kind.KEY;
-      if (b.action.mode == null) b.action.mode = GestureConfig.PressMode.CLICK;
-      if (b.action.keyId == null) b.action.keyId = "key.inventory";
-      if (b.action.command == null) b.action.command = "";
-      b.action.command = b.action.command.substring(0, Math.min(2048, b.action.command.length()));
-      b.action.ticks = Math.clamp(b.action.ticks, 1, 200);
+      sanitizeAction(b.action);
+      if (b.action.kind == GestureConfig.Kind.SEQUENCE && b.action.steps != null)
+        for (var step : b.action.steps) if (step != null) sanitizeAction(step);
       if (b.samples == null) b.samples = new ArrayList<>();
       b.samples.removeIf(s -> s == null);
       if (b.samples.size() > 8) b.samples = new ArrayList<>(b.samples.subList(0, 8));
@@ -120,5 +117,14 @@ public final class ConfigStore {
 
   private static double finiteClamp(double value, double min, double max, double fallback) {
     return Double.isFinite(value) ? Math.clamp(value, min, max) : fallback;
+  }
+
+  private static void sanitizeAction(GestureConfig.Action action) {
+    if (action.mode == null) action.mode = GestureConfig.PressMode.CLICK;
+    if (action.keyId == null) action.keyId = "";
+    if (action.command == null) action.command = "";
+    action.command = action.command.substring(0, Math.min(2048, action.command.length()));
+    action.ticks = Math.clamp(action.ticks, action.kind == GestureConfig.Kind.WAIT ? 0 : 1, 200);
+    action.delayTicks = Math.clamp(action.delayTicks, 0, 200);
   }
 }

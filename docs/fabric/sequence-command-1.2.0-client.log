@@ -1,0 +1,240 @@
+[15:59:31] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
+[15:59:31] [main/INFO] (FabricLoader) Loading 57 mods:
+	- fabric-api 0.116.17+1.21.1
+	- fabric-api-base 0.4.42+6573ed8c19
+	- fabric-api-lookup-api-v1 1.6.72+7b3d111d19
+	- fabric-biome-api-v1 13.0.31+d527f9fd19
+	- fabric-block-api-v1 1.1.0+0bc3503219
+	- fabric-block-view-api-v2 1.0.11+ebb2264e19
+	- fabric-blockrenderlayer-v1 1.1.52+0af3f5a719
+	- fabric-client-tags-api-v1 1.2.0+1eb36c0719
+	- fabric-command-api-v1 1.2.49+f71b366f19
+	- fabric-command-api-v2 2.2.28+6ced4dd919
+	- fabric-commands-v0 0.2.66+df3654b319
+	- fabric-content-registries-v0 8.0.19+b559734419
+	- fabric-convention-tags-v1 2.1.7+7f945d5b19
+	- fabric-convention-tags-v2 2.12.0+c3656daa19
+	- fabric-crash-report-info-v1 0.2.29+0af3f5a719
+	- fabric-data-attachment-api-v1 1.4.7+5b36e0f719
+	- fabric-data-generation-api-v1 20.3.0+1eb36c0719
+	- fabric-dimensions-v1 4.0.1+65213ef819
+	- fabric-entity-events-v1 1.8.0+2b27e0a419
+	- fabric-events-interaction-v0 0.7.14+ba9dae0619
+	- fabric-game-rule-api-v1 1.0.53+6ced4dd919
+	- fabric-gametest-api-v1 2.0.5+6fc22b9919
+	- fabric-item-api-v1 11.3.0+467044f319
+	- fabric-item-group-api-v1 4.1.7+def88e3a19
+	- fabric-key-binding-api-v1 1.0.47+0af3f5a719
+	- fabric-keybindings-v0 0.2.45+df3654b319
+	- fabric-lifecycle-events-v1 2.6.0+0865547519
+	- fabric-loot-api-v2 3.0.15+3f89f5a519
+	- fabric-loot-api-v3 1.0.3+3f89f5a519
+	- fabric-message-api-v1 6.0.14+8aaf3aca19
+	- fabric-model-loading-api-v1 2.1.0+b4d813fc19
+	- fabric-networking-api-v1 4.3.1+d30f6a7919
+	- fabric-object-builder-api-v1 15.2.1+40875a9319
+	- fabric-particles-v1 4.0.2+6573ed8c19
+	- fabric-recipe-api-v1 5.0.16+2475392c19
+	- fabric-registry-sync-v0 5.3.2+e3eddc2119
+	- fabric-renderer-api-v1 3.4.1+b4d813fc19
+	- fabric-renderer-indigo 1.7.1+c705a49c19
+	- fabric-renderer-registries-v1 3.2.71+df3654b319
+	- fabric-rendering-data-attachment-v1 0.3.49+73761d2e19
+	- fabric-rendering-fluids-v1 3.1.6+1daea21519
+	- fabric-rendering-v0 1.1.74+df3654b319
+	- fabric-rendering-v1 5.2.1+f44c2eea19
+	- fabric-resource-conditions-api-v1 4.3.0+8dc279b119
+	- fabric-resource-loader-v0 1.3.1+5b5275af19
+	- fabric-screen-api-v1 2.0.26+639b4c0719
+	- fabric-screen-handler-api-v1 1.3.91+b559734419
+	- fabric-sound-api-v1 1.0.23+6573ed8c19
+	- fabric-tag-api-v1 1.3.0+1eb36c0719
+	- fabric-transfer-api-v1 5.4.4+7b3d111d19
+	- fabric-transitive-access-wideners-v1 6.2.0+45b9699719
+	- fabricloader 0.16.14
+	- gesturekeys 1.2.0
+	- java 21
+	- minecraft 1.21.1
+	- mixinextras 0.4.1
+	- modmenu 11.0.3
+[15:59:32] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/PureNeko/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[15:59:32] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[15:59:32] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[15:59:32] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[15:59:35] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[15:59:38] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 913 milliseconds
+[15:59:52] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15:59:52] [Render thread/INFO] (Minecraft) Setting user: Player254
+[15:59:53] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[15:59:53] [Render thread/INFO] (Mod Menu/Update Checker) Checking mod updates...
+[15:59:54] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
+[15:59:57] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gesturekeys, modmenu
+[15:59:58] [Worker-Main-3/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[15:59:58] [Worker-Main-9/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[16:00:00] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[16:00:00] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[16:00:01] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Headphones (2- EDIFIER Fit900NB)
+[16:00:01] [Render thread/INFO] (Minecraft) Sound engine started
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[16:00:01] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[16:00:01] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[16:00:22] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gesturekeys, modmenu
+[16:00:22] [Worker-Main-8/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[16:00:22] [Worker-Main-12/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[16:00:24] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[16:00:24] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[16:00:24] [ModMenu/Update Checker/Fabric Loader/INFO] (Mod Menu/Update Checker) Update available for 'fabricloader@0.16.14'
+[16:00:24] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Headphones (2- EDIFIER Fit900NB)
+[16:00:24] [Render thread/INFO] (Minecraft) Sound engine started
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[16:00:24] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[16:00:24] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[16:00:26] [Render thread/INFO] (Minecraft) Found new data pack fabric, loading it automatically
+[16:00:26] [Render thread/INFO] (Minecraft) Found new data pack fabric-convention-tags-v2, loading it automatically
+[16:00:26] [Render thread/INFO] (Minecraft) Found new data pack fabric-gametest-api-v1, loading it automatically
+[16:00:28] [Render thread/INFO] (Minecraft) Loaded 1290 recipes
+[16:00:28] [Render thread/INFO] (Minecraft) Loaded 1399 advancements
+[16:00:29] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 2.930 ms
+[16:00:29] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.1
+[16:00:29] [Server thread/INFO] (Minecraft) Generating keypair
+[16:00:30] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[16:00:30] [Render thread/INFO] (Minecraft) Preparing spawn area: 2%
+[16:00:30] [Render thread/INFO] (Minecraft) Time elapsed: 243 ms
+[16:00:30] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[16:00:30] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[16:00:31] [Server thread/INFO] (Minecraft) Player254[local:E:3bbe6a21] logged in with entity id 1 at (-0.5, -60.0, 8.5)
+[16:00:31] [Server thread/INFO] (Minecraft) Player254 joined the game
+[16:00:32] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[16:00:36] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[16:00:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:overworld
+[16:00:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_nether
+[16:00:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_end
+[16:00:37] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[16:00:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:overworld
+[16:00:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_nether
+[16:00:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_end
+[16:00:39] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[16:00:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:overworld
+[16:00:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_nether
+[16:00:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_end
+[16:00:41] [Render thread/INFO] (Minecraft) Loaded 23 advancements
+[16:00:45] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[16:00:45] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:overworld
+[16:00:45] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_nether
+[16:00:45] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_end
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /advancement (grant|revoke)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /attribute <target> <attribute> (get|base|modifier)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /execute (run|if|unless|as|at|store|positioned|rotated|facing|align|anchored|in|summon|on)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /bossbar (add|remove|list|set|get)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /clear [<targets>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /clone (<begin>|from)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /damage <target> <amount> [<damageType>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /data (merge|get|remove|modify)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /datapack (enable|disable|list)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /debug (start|stop|function)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /defaultgamemode <gamemode>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /difficulty [peaceful|easy|normal|hard]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /effect (clear|give)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /me <action>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /enchant <targets> <enchantment> [<level>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /experience (add|set|query)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /xp -> experience
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /fill <from> <to> <block> [replace|keep|outline|hollow|destroy]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /fillbiome <from> <to> <biome> [replace]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /forceload (add|remove|query)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /function <name> [<arguments>|with]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gamemode <gamemode> [<target>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gamerule (announceAdvancements|blockExplosionDropDecay|commandBlockOutput|commandModificationBlockLimit|disableElytraMovementCheck|disableRaids|doDaylightCycle|doEntityDrops|doFireTick|doImmediateRespawn|doInsomnia|doLimitedCrafting|doMobLoot|doMobSpawning|doPatrolSpawning|doTileDrops|doTraderSpawning|doVinesSpread|doWardenSpawning|doWeatherCycle|drowningDamage|enderPearlsVanishOnDeath|fallDamage|fireDamage|forgiveDeadPlayers|freezeDamage|globalSoundEvents|keepInventory|lavaSourceConversion|logAdminCommands|maxCommandChainLength|maxCommandForkCount|maxEntityCramming|mobExplosionDropDecay|mobGriefing|naturalRegeneration|playersNetherPortalCreativeDelay|playersNetherPortalDefaultDelay|playersSleepingPercentage|projectilesCanBreakBlocks|randomTickSpeed|reducedDebugInfo|sendCommandFeedback|showDeathMessages|snowAccumulationHeight|spawnChunkRadius|spawnRadius|spectatorsGenerateChunks|tntExplosionDropDecay|universalAnger|waterSourceConversion)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /give <targets> <item> [<count>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /help [<command>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /item (replace|modify)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /kick <targets> [<reason>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /kill [<targets>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /list [uuids]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /locate (structure|biome|poi)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /loot (replace|insert|give|spawn)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /msg <targets> <message>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tell -> msg
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /w -> msg
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /particle <name> [<pos>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /place (feature|jigsaw|structure|template)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /playsound <sound> [master|music|record|weather|block|hostile|neutral|player|ambient|voice]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /random (value|roll|reset)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /reload
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /recipe (give|take)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /return (<value>|fail|run)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /ride <target> (mount|dismount)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /say <message>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /schedule (function|clear)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /scoreboard (objectives|players)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /seed
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /setblock <pos> <block> [destroy|keep|replace]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /spawnpoint [<targets>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /setworldspawn [<pos>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /spectate [<target>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /spreadplayers <center> <spreadDistance> <maxRange> (<respectTeams>|under)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /stopsound <targets> [*|master|music|record|weather|block|hostile|neutral|player|ambient|voice]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /summon <entity> [<pos>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tag <targets> (add|remove|list)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /team (list|add|remove|empty|join|leave|modify)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /teammsg <message>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tm -> teammsg
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /teleport (<location>|<destination>|<targets>)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tp -> teleport
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tellraw <targets> <message>
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /tick (query|rate|step|sprint|unfreeze|freeze)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /time (set|add|query)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /title <targets> (clear|reset|title|subtitle|actionbar|times)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /trigger <objective> [add|set]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /weather (clear|rain|thunder)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /worldborder (add|set|center|damage|get|warning)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /test (run|runmultiple|runall|runthese|runclosest|runthat|runfailed|verify|verifyclass|locate|resetclosest|resetthese|resetthat|export|exportclosest|exportthese|exportthat|clearthat|clearthese|clearall|import|stop|pos|create)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /jfr (start|stop)
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /publish [<allowCommands>]
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gk_routing_priority
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gk_routing_tail
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gk_routing_hidden
+[16:00:47] [Render thread/INFO] (Minecraft) [System] [CHAT] /gk_routing_failure
+[16:00:47] [Render thread/INFO] (Minecraft) [CHAT] You whisper to Player254: 111
+[16:00:47] [Render thread/INFO] (Minecraft) [CHAT] Player254 whispers to you: 111
+[16:00:49] [Render thread/INFO] (Minecraft) [System] [CHAT] gk_routing_server_failure
+[16:00:49] [Render thread/INFO] (Minecraft) [System] [CHAT] Unknown or incomplete command, see below for error
+[16:00:49] [Render thread/INFO] (Minecraft) [System] [CHAT] gk_routing_missing_command<--[HERE]
+[16:00:50] [Render thread/INFO] (Minecraft) Stopping!
+[16:00:50] [Server thread/INFO] (Minecraft) Player254 lost connection: Disconnected
+[16:00:50] [Server thread/INFO] (Minecraft) Player254 left the game
+[16:00:50] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[16:00:50] [Server thread/INFO] (Minecraft) Stopping server
+[16:00:50] [Server thread/INFO] (Minecraft) Saving players
+[16:00:50] [Server thread/INFO] (Minecraft) Saving worlds
+[16:00:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:overworld
+[16:00:51] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_nether
+[16:00:51] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[GestureKeys Fabric check]'/minecraft:the_end
+[16:00:51] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (gesturekeys-fabric-check-1793520026675): All chunks are saved
+[16:00:51] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[16:00:51] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[16:00:51] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
